@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chúng tôi đếm ngược ngày gặp nhaoooo</title>
     <style>
         body {
             font-family: sans-serif;
@@ -12,30 +12,26 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-
-        #header {
-            padding-top: 100px;
-            font-size: 70px;
-            color: white;
-        }
         #time {
             font-size: 120px;
-            color: white;
+            color: pink;
         }
         #container {
             display: flex;
             flex-direction: column;
             align-items: center;
             border: 5px solid black;
-            border-radius: 50px;
-            backdrop-filter: blur(15px);
+            background-color: black;
+            opacity: 0.6;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            font-size: 70px;
+            color: white;
         }
     </style>
 </head>
 <body>
-    <h1 id="header">
-        Chúng tôi đếm ngược ngày gặp nhaoooo
-    </h1>
     <div id="container">
         <h1 id="time">Days 00:00:00</h1>
     </div>
@@ -43,20 +39,27 @@
         const target = new Date('March 01, 2024 08:30:00');
         const h = document.getElementById('time');
 
-        setInterval(()=> {
+        setInterval(calTime, 1000);
+
+        function calTime() {
             let time = target - Date.now();
-            const days = Math.floor(time / (3600000 * 24));
-            time %= (3600000 * 24);
-            let hour = Math.floor(time / 3600000);
-            hour = String(hour).padStart(2, '0');
-            time %= 3600000;
-            let minute = Math.floor(time / 60000);
-            minute = String(minute).padStart(2, '0');
-            time %= 60000;
-            let second = Math.floor(time / 1000);
-            second = String(second).padStart(2, '0');
-            h.innerText = `${days} ngày nữa, ${hour}:${minute}:${second}`;
-        }, 1000);
+            if (time <= 0) {
+                h.innerText = `Chúng tui gặp nhao ùi`;
+            }
+            else {
+                const days = Math.floor(time / (3600000 * 24));
+                time %= (3600000 * 24);
+                let hour = Math.floor(time / 3600000);
+                hour = String(hour).padStart(2, '0');
+                time %= 3600000;
+                let minute = Math.floor(time / 60000);
+                minute = String(minute).padStart(2, '0');
+                time %= 60000;
+                let second = Math.floor(time / 1000);
+                second = String(second).padStart(2, '0');
+                h.innerText = `${days} ngày nữa, ${hour}:${minute}:${second}`;
+            }
+        }
     </script>
 </body>
 </html>
