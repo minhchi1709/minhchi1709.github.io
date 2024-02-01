@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 250px;
+            font-family: sans-serif;
+            margin-top: 350px;
+        }
+        h2 {
+            text-align: center;
+            font-size: 50px;
+            font-family: sans-serif;
+            margin-top: 100px;
+        }
+        input {
+            margin-left: 48%;
+            font-size: 100px;
+            block-size: 100px;
+        }
+        body {
+            background-image: url(3anhem.jpg);
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>hehe</h1>
+    <h2></h2>
+    <input type="button" class="btn btn-primary" value="Bấm zô đây">
+    <script>
+        const btn = document.querySelector('input');
+        const h1 = document.querySelector('h1');
+        const h2 = document.querySelector('h2');
+        const values = ['CHÚC', 'BON', 'SINH', 'NHỰT', 'ZUI', 'ZẺ', 'NHOOO'];
+        let count = 0;
+        btn.addEventListener('click', () => {
+            if (count >= values.length) {
+                h1.innerText = '';
+                h2.innerText = 'ANH HAI CHÚC BON LUÔN THÀNH CÔNG VỚI ĐAM MÊ TOÁN CHUYÊN NHO HEHE';
+                btn.value = 'hết ùi học bài típ ik';
+                btn.style.marginLeft = '45.5%';
+            }
+            else {
+                h1.innerText = values[count];
+                count++;
+            }
+        });
+    </script>
+</body>
+</html>
