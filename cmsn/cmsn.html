@@ -10,41 +10,81 @@
             text-align: center;
             font-size: 250px;
             font-family: sans-serif;
-            margin-top: 350px;
+            margin-top: 20%;
         }
         h2 {
             text-align: center;
             font-size: 50px;
             font-family: sans-serif;
-            margin-top: 100px;
+            margin-top: 30%;
         }
         input {
             margin-left: 48%;
             font-size: 100px;
-            block-size: 100px;
         }
         body {
-            background-image: url(3anhem.jpg);
             background-size: cover;
+            background-color: aquamarine;
+        }
+        .container {
+            margin-left: 44%;
+        }
+        #lap{
+            margin-right: 1%;
+        }
+        #lap #phone{
+            padding: 5px 5px 5px 5px;
         }
     </style>
+    <link rel="icon" href="./pizza.png" type="image/x-icon">
 </head>
 <body>
-    <h1>hehe</h1>
-    <h2></h2>
-    <input type="button" class="btn btn-primary" value="Bấm zô đây">
+    <h1></h1>
+    <h2>Bon đang dùng lap hay điện thoại</h2>
+    <div class="container">
+        <button class="btn btn-primary" id="lap">Lap</button>
+        <button class="btn btn-primary" id="phone">Điện Thoại</button>
+    </div>
+    <input type="button" class="btn btn-primary" value="Bấm zô đây" style="display: none;">
     <script>
         const btn = document.querySelector('input');
         const h1 = document.querySelector('h1');
         const h2 = document.querySelector('h2');
+        document.getElementById('lap').addEventListener('click', () => {
+            document.querySelector('body').style.backgroundColor = 'white';
+            document.querySelector('body').style.backgroundImage = 'url(lap.jpg)';
+            document.getElementById('lap').style.display = 'none';
+            document.getElementById('phone').style.display = 'none';
+            btn.style.display = 'block';
+            h2.style.display = 'none';
+            h1.innerText = 'hehe';
+        });
+        document.getElementById('phone').addEventListener('click', () => {
+            document.querySelector('body').style.backgroundColor = 'white';
+            document.querySelector('body').style.backgroundImage = 'url(phone.jpg)';
+            document.getElementById('lap').style.display = 'none';
+            document.getElementById('phone').style.display = 'none';
+            btn.style.display = 'block';
+            h2.style.display = 'none';
+            h1.innerText = 'hehe';
+            h1.style.fontSize = '75px';
+            h2.style.fontSize = '25px';
+        });
         const values = ['CHÚC', 'BON', 'SINH', 'NHỰT', 'ZUI', 'ZẺ', 'NHOOO'];
         let count = 0;
         btn.addEventListener('click', () => {
-            if (count >= values.length) {
-                h1.innerText = '';
+            if (count === values.length) {
+                h1.style.display = 'none';
+                h2.style.display = 'block';
                 h2.innerText = 'ANH HAI CHÚC BON LUÔN THÀNH CÔNG VỚI ĐAM MÊ TOÁN CHUYÊN NHO HEHE';
                 btn.value = 'hết ùi học bài típ ik';
                 btn.style.marginLeft = '45.5%';
+                count++;
+            }
+            else if (count >= values.length) {
+                h1.style.display = 'none';
+                h2.style.display = 'none';
+                btn.style.display = 'none';
             }
             else {
                 h1.innerText = values[count];
