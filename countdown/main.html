@@ -12,7 +12,7 @@
             background-size: cover;
         }
         #time {
-            font-size: 120px;
+            font-size: 70%;
             color: pink;
         }
         #container {
@@ -28,11 +28,30 @@
             font-size: 70px;
             color: white;
         }
+        .dropdown-content a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-size: 40%;
+        }
+        .dropdown-content {
+        display: none;
+        min-width: 160px;
+        z-index: 1;
+        }
+        #container:hover .dropdown-content {
+        display: block;
+        }
     </style>
     <link rel="icon" href="./love.png" type="image/x-icon">
 </head>
 <body>
     <div id="container">
+        <div class="dropdown-content">
+            <a href="https://minhchi1709.github.io/countdown/main.html">Count Down</a>
+            <a href="https://minhchi1709.github.io/beentogether/main.html">Been Together</a>
+        </div>
         <h1 id="time">17 ngày nữa, 00:00:00</h1>
     </div>
     <script>
