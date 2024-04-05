@@ -1,0 +1,50 @@
+.nav-container {
+  height: 100%;
+  box-shadow: 3px 0 10px lightgrey;
+}
+
+img {
+  width: 80%;
+  border-radius: 50%;
+  display: block;
+  margin: 10%;
+}
+
+.nav-link {
+  color: black;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.nav-link:hover {
+  border-radius: 5px;
+  background-color: #EBEBEB;
+  color: black
+}
+
+.active {
+  color: #0092F1;
+  border-radius: 5px;
+  background-color: #EBEBEB
+}
+
+.box {
+  display: flex;
+  align-items:center;
+}
+
+.icon {
+  vertical-align: middle;
+  height: 1rem;
+  max-width: 1rem;
+}
+
+.link {
+  font-size: 0.6rem;
+  text-decoration: none;
+  margin-left: -10px;
+}
+
+.contact-container {
+  margin: 0
+}
