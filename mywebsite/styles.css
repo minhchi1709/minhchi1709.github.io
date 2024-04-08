@@ -127,7 +127,7 @@ padding-right: 0
 
 
 .home {
-    background-image: url('./img/background.jpg');
+    background-image: url('https://minhchi1709.github.io/mywebsite/img/background.jpg');
     background-size: cover;
     height: 100%;
 }
