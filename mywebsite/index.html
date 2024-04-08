@@ -975,6 +975,13 @@ function handleNavigation(type, navlink) {
       }
   })
   document.getElementById(type).style.display = 'block';
+  if (type === 'projects-en') {
+    console.log('Click the title of each project to see its github repository');
+  } else if(type === 'projects-de') {
+    console.log('Klicken Sie auf den Titel des jeweiligen Projektes, um sein Github-Repository anzuzeigen');
+  } else {
+    console.log('Nhấn vào tiêu đề mỗi dự án để xem repo');
+  }
 }
 
 function handleLang(type) {
