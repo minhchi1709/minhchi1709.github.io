@@ -961,7 +961,7 @@ function onClick(type, icon) {
 
 // type is the content to display, for example about-en
 function handleNavigation(type, navlink) {
-  console.log(type);
+  console.log(type)
   document.querySelectorAll('.nav-link').forEach(navlink => {
           navlink.classList.remove('active');
       }
@@ -979,8 +979,8 @@ function handleNavigation(type, navlink) {
   if (type === 'projects-en') {
     alert('Click the title of each project to see its github repository');
   } else if(type === 'projects-de') {
-    alert('Klicken Sie auf den Titel des jeweiligen Projektes, um sein Github-Repository anzuzeigen');
-  } else {
+    alert('Klicken Sie auf den Titel des jeweiligen Projektes, um das Github-Repository anzuzeigen');
+  } else if(type ==='projects-vn') {
     alert('Nhấn vào tiêu đề mỗi dự án để xem repo');
   }
 }
