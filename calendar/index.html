@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <title>Calendar</title>
+    <link rel="icon" href="./icon.png" type="image/x-icon">  
+    <style>
+        .time {
+            width: 1vh
+        }
+        .content {
+            width: 19.8vh;
+            
+        }
+        thead {
+            font-weight: bold;
+        }
+        .period {
+            margin-top: 5px;
+            margin-bottom: 5px
+            
+        }
+        h1 {
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+        }
+        #open-notes{
+            position: absolute;
+            right: 1%;
+            top: 1%
+        }
+        #close-notes{
+            position: absolute;
+            right: 31%;
+            top: 21%;
+            background-color: white;
+            border: none;
+            border-radius: 50%;
+        }
+        #close-notes:hover {
+            background-color: lightgrey;
+            
+        }
+        #close {
+            height: 1.2vh;
+        }
+        #notes {
+            position: absolute;
+            top: 20%;
+            left: 30%;
+            width: 40%;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 10px;
+            height: auto;
+            max-height: 60%;
+            overflow-y: scroll;
+            
+        }
+        .note-title{
+            font-weight: bold;
+        }
+        .exam {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1 id="title">Schedules</h1>
+        <button class="btn btn-outline-info" id="open-notes">Click to see notes</button>
+    </div>
+    <table id="table" class="table table-striped">
+        <thead>
+            <tr>
+                <td class="time">Time</td>
+                <td class="content">Monday</td>
+                <td class="content">Tuesday</td>
+                <td class="content">Wednesday</td>
+                <td class="content">Thursday</td>
+                <td class="content">Friday</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time">08:30 - 10:00</td>
+                <td class="content" id="mon-1"></td>
+                <td class="content" id="tue-1"></td>
+                <td class="content" id="wed-1"></td>
+                <td class="content" id="thu-1"></td>
+                <td class="content" id="fri-1"></td>
+            </tr>
+            <tr>
+                <td class="time">10:30 - 12:00</td>
+                <td class="content" id="mon-2"></td>
+                <td class="content" id="tue-2"></td>
+                <td class="content" id="wed-2"></td>
+                <td class="content" id="thu-2"></td>
+                <td class="content" id="fri-2"></td>
+            </tr>
+            <tr>
+                <td class="time">12:30 - 14:00</td>
+                <td class="content" id="mon-3"></td>
+                <td class="content" id="tue-3"></td>
+                <td class="content" id="wed-3"></td>
+                <td class="content" id="thu-3"></td>
+                <td class="content" id="fri-3"></td>
+            </tr>
+            <tr>
+                <td class="time">14:30 - 16:00</td>
+                <td class="content" id="mon-4"></td>
+                <td class="content" id="tue-4"></td>
+                <td class="content" id="wed-4"></td>
+                <td class="content" id="thu-4"></td>
+                <td class="content" id="fri-4"></td>
+            </tr>
+            <tr>
+                <td class="time">16:30 - 18:00</td>
+                <td class="content" id="mon-5"></td>
+                <td class="content" id="tue-5"></td>
+                <td class="content" id="wed-5"></td>
+                <td class="content" id="thu-5"></td>
+                <td class="content" id="fri-5"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="notes" hidden>
+        
+    </div>
+    <button class="btn" id="close-notes" hidden><img src="./close.png" alt="close" id="close"></button>
+    <script>
+        const subjects = [
+            {
+                name: 'Embedded Systems',
+                schedules: [
+                    {
+                        type: 'Lecture/Exercise',
+                        time: 'mon-4',
+                        location: 'AH II Informatik Zentrum',
+                        zoom: 'https://rwth.zoom.us/j/94419485130?pwd=b0d3YURxNXBzZjRranF3K3V6bXlYUT09'
+                    },
+                    {
+                        type: 'Lecture/Exercise',
+                        time: 'tue-2',
+                        location: 'AH II Informatik Zentrum',
+                        zoom: 'https://rwth.zoom.us/j/94419485130?pwd=b0d3YURxNXBzZjRranF3K3V6bXlYUT09'
+                    },
+                ]
+            },
+            {
+                name: 'Computer Vision',
+                schedules: [
+                    {
+                        type: 'Lecture/Exercise',
+                        time: 'mon-4',
+                        location: 'H02'
+                    },
+                    {
+                        type: 'Lecture/Exercise',
+                        time: 'tue-2',
+                        location: 'Grüner Hörsaal'
+                    },
+                ]
+            },
+            {
+                name: 'Functional Programming',
+                schedules: [
+                    {
+                        type: 'Lecture',
+                        time: 'mon-5',
+                        location: 'AH V Informatik Zentrum'
+                    },
+                    {
+                        type: 'Lecture',
+                        time: 'fri-2',
+                        location: 'AH V Informatik Zentrum'
+                    },
+                    {
+                        type: 'Exercise',
+                        time: 'fri-4',
+                        location: 'AH V Informatik Zentrum'
+                    },
+                ]
+            },
+            {
+                name: 'Databases and Information Systems',
+                schedules: [
+                    {
+                        type: 'Lecture',
+                        time: 'tue-5',
+                        location: 'Grüner Hörsaal'
+                    },
+                    {
+                        type: 'Lecture',
+                        time: 'thu-5',
+                        location: 'H1 Professor Pirlet Str. 12'
+                    },
+                    {
+                        type: 'Exercise',
+                        time: 'mon-3',
+                        location: 'H1 Professor Pirlet Str. 12'
+                    },
+                    {
+                        type: 'Exercise',
+                        time: 'fri-2',
+                        location: 'H1 Professor Pirlet Str. 12'
+                    },
+                ]
+            },
+            {
+                name: 'Deustchkurs Fachsprache',
+                schedules: [
+                    {
+                        type: 'Lecture',
+                        time: 'mon-4',
+                        zoom: 'https://rwth.zoom-x.de/j/68875950011?pwd=RHBBbnByZG5YbFNqSktvdXlOY1lxUT09'
+                    }
+                ]
+            }
+        ]
+        subjects.forEach(subject => {
+            subject.schedules.forEach(schedule => {
+                const location = schedule.zoom && schedule.location ? `
+                <ul>
+                    <li>${schedule.location}</li>
+                    <li><a href='${schedule.zoom}'>Open Zoom</a></li>
+                </ul>
+                    ` : (schedule.location ? schedule.location : `<a href='${schedule.zoom}' target="_blank">Open Zoom</a>`);
+                document.getElementById(schedule.time).innerHTML += `
+                <div class='period'>
+                    <div><strong>${subject.name}</strong></div>
+                    <div>${schedule.type}</div>
+                    <div>${location}</div>
+                </div>
+                `
+            })
+        })
+        // click event for notes
+        const openNote = () => {
+            document.getElementById('table').style.filter = 'blur(8px)';
+            document.getElementById('notes').hidden = false;
+            document.getElementById('open-notes').hidden = true;
+            document.getElementById('title').innerText = 'Notes';
+            document.getElementById('close-notes').hidden = false;
+  
+        }
+        document.getElementById('open-notes').addEventListener('click', openNote);
+        const closeNote = () => {
+            document.getElementById('table').style.filter = 'none';
+            document.getElementById('notes').hidden = true;
+            document.getElementById('open-notes').hidden = false;
+            document.getElementById('title').innerText = 'Schedules';
+            document.getElementById('close-notes').hidden = true;
+        }
+        document.getElementById('close-notes').addEventListener('click', closeNote);
+        const notes = [
+            {
+                title: 'A Race between Model-based and Handwritten Development of Web-Applications',
+                detail: `
+                The first meeting will take place online in Zoom on Monday 22.04, 16:00. Expected duration: 45 minutes.
+                <a href="https://rwth.zoom-x.de/j/68538856224?pwd=c1o5Mkp4c1lWc3ZEMGxES3VwbXNCQT09" target="_blank">Open Zoom</a> 
+                `
+            },
+            {
+                title: "Introduction to Scientific Work",
+                detail: `
+                Mi, 24.04.2024 16:30-18:00. Room: AH V (2356|050)
+                `
+            },
+            {
+                title: 'Computer Vision',
+                detail: 'The lecture will predominantly be held in an in-presence format. All lecture recordings will be made available on moodle. Exercises will be held in-presence. No admission requirement to qualify for the exam this year'
+            },
+            {
+                title: 'Databases and Information Systems',
+                detail: `
+                docker login -u diepminhchi1617@gmail.com -p (token) registry.git.rwth-aachen.de<br>
+                docker run --pull always -p 8888:8888 registry.git.rwth-aachen.de/i5/teaching/dbis-jupyter/dbis-vl-2023-jupyter-profile-definition/main
+                `
+            },
+        ]
+        notes.forEach(note => {
+            document.getElementById('notes').innerHTML += `
+            <div class="note">
+                <div class="note-title">${note.title}</div>
+                <div>${note.detail}</div>
+            </div>
+            <hr>
+            `
+        })
+        document.getElementById('notes').innerHTML += '<h1>Exams</h1>'
+        const exams = [
+            {
+                name: 'Embedded Systems',
+                time: 'Do., 15.08.2024 08:30 Uhr - 10:30 Uhr',
+                location: 'Zuse-Lab'
+            },
+            {
+                name: 'Computer Vision',
+                time: 'Fri, 30.08.2024, 08:30-10:30h',
+                location: ''
+            },
+            
+        ]
+        exams.forEach(exam => {
+            document.getElementById('notes').innerHTML += `
+            <div class="exam">
+                <div style="font-weight: bold">${exam.name}</div>
+                <div>${exam.time}</div>
+                <div>${exam.location}
+            </div>
+            `
+        })
+        
+    </script>
+</body>
+</html>
