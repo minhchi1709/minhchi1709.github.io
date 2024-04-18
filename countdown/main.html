@@ -55,26 +55,26 @@
         <h1 id="time">17 ngày nữa, 00:00:00</h1>
     </div>
     <script>
-        const target = new Date('March 01, 2024 08:30:00');
+        const target = new Date('August 31, 2024 08:30:00');
         const h = document.getElementById('time');
 
         setInterval(calTime, 1000);
 
         function calTime() {
-            let time = target - Date.now();
+            let time = Math.floor((target - Date.now())/1000);
             if (time <= 0) {
                 h.innerText = `Chúng tui gặp nhao ùi`;
             }
             else {
-                const days = Math.floor(time / (3600000 * 24));
-                time %= (3600000 * 24);
-                let hour = Math.floor(time / 3600000);
+                const days = Math.floor(time / (3600 * 24));
+                time %= (3600 * 24);
+                let hour = Math.floor(time / 3600);
                 hour = String(hour).padStart(2, '0');
-                time %= 3600000;
-                let minute = Math.floor(time / 60000);
+                time %= 3600;
+                let minute = Math.floor(time / 60);
                 minute = String(minute).padStart(2, '0');
-                time %= 60000;
-                let second = Math.floor(time / 1000);
+                time %= 60;
+                let second = time;
                 second = String(second).padStart(2, '0');
                 h.innerText = `${days} ngày nữa, ${hour}:${minute}:${second}`;
             }
