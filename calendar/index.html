@@ -29,7 +29,7 @@
         a {
             text-decoration: none;
         }
-        #open-notes{
+        #buttons{
             position: absolute;
             right: 1%;
             top: 1%
@@ -71,13 +71,31 @@
         .exam {
             margin-top: 10px;
         }
+        #time {
+            position: absolute;
+            top: 5px;
+            left: 15px;
+            font-weight: bold;
+            font-size: 2rem;
+            border: 1px solid black;
+            border-radius: 50px;
+            padding-left: 25px;
+            padding-right: 25px;
+            background-color: rgb(13, 202, 240);
+            color: white;
+            border: none;
+        }
     </style>
 </head>
 <body>
     <div class="title">
         <h1 id="title">Schedules</h1>
-        <button class="btn btn-outline-info" id="open-notes">Click to see notes</button>
+        <div id="buttons">
+            <button class="btn btn-outline-info" id="open-notes">Click to see notes</button>
+            <button class="btn btn-outline-warning" id="change-time">VN</button>
+        </div>
     </div>
+    <div id="time">00:00:00</div>
     <table id="table" class="table table-striped">
         <thead>
             <tr>
@@ -91,15 +109,15 @@
         </thead>
         <tbody>
             <tr>
-                <td class="time">08:30 - 10:00</td>
+                <td class="time" id="time-1">08:30 - 10:00</td>
                 <td class="content" id="mon-1"></td>
                 <td class="content" id="tue-1"></td>
                 <td class="content" id="wed-1"></td>
-                <td class="content" id="thu-1"></td>
+                <td class="content" id="thu-1">fdasfda</td>
                 <td class="content" id="fri-1"></td>
             </tr>
             <tr>
-                <td class="time">10:30 - 12:00</td>
+                <td class="time" id="time-2">10:30 - 12:00</td>
                 <td class="content" id="mon-2"></td>
                 <td class="content" id="tue-2"></td>
                 <td class="content" id="wed-2"></td>
@@ -107,7 +125,7 @@
                 <td class="content" id="fri-2"></td>
             </tr>
             <tr>
-                <td class="time">12:30 - 14:00</td>
+                <td class="time" id="time-3">12:30 - 14:00</td>
                 <td class="content" id="mon-3"></td>
                 <td class="content" id="tue-3"></td>
                 <td class="content" id="wed-3"></td>
@@ -115,7 +133,7 @@
                 <td class="content" id="fri-3"></td>
             </tr>
             <tr>
-                <td class="time">14:30 - 16:00</td>
+                <td class="time" id="time-4">14:30 - 16:00</td>
                 <td class="content" id="mon-4"></td>
                 <td class="content" id="tue-4"></td>
                 <td class="content" id="wed-4"></td>
@@ -123,7 +141,7 @@
                 <td class="content" id="fri-4"></td>
             </tr>
             <tr>
-                <td class="time">16:30 - 18:00</td>
+                <td class="time" id="time-5">16:30 - 18:00</td>
                 <td class="content" id="mon-5"></td>
                 <td class="content" id="tue-5"></td>
                 <td class="content" id="wed-5"></td>
@@ -132,10 +150,9 @@
             </tr>
         </tbody>
     </table>
-    <div id="notes" hidden>
-        
-    </div>
+    <div id="notes" hidden></div>
     <button class="btn" id="close-notes" hidden><img src="./close.png" alt="close" id="close"></button>
+    
     <script>
         const subjects = [
             {
@@ -319,7 +336,64 @@
             </div>
             `
         })
-        
+        let currentHighlighted = -1;
+        let adjustNeeded = true;
+        let previousBackgroundColor = '';
+        const figureNow = () => {
+            const now = new Date();
+            const hour = now.getHours();
+            const minutes = now.getMinutes();
+            document.getElementById('time').innerText = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`
+            let day = 0  
+            switch (now.getDay()) {
+                case 1: 
+                    day = 'mon';
+                    break;
+                case 2:
+                    day = 'tue';
+                    break;
+                case 3: 
+                    day = 'wed';
+                    break;
+                case 4: 
+                    day = 'thu';
+                    break;
+                case 5:
+                    day = 'fri';
+                    break
+                default: 
+                    day = 'rest day';
+                    break;
+            }
+            if (day === 'rest day') {
+                console.log('today is a rest day');
+                return;
+            }
+            let distance = (hour - 8) * 60 + (minutes - 30);
+            const min = 0;
+            const max = 90;
+            for (let i = 0 ; i < 5 ; i ++) {
+                if (min + 120 * i <= distance && distance <= max + 120 * i && currentHighlighted !== i) {
+                    const target = document.getElementById(`${day}-${i + 1}`);
+                    previousBackgroundColor = target.style.backgroundColor;
+                    target.style.backgroundColor = '#75C8FE';
+                    target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
+                    target.style.color = 'white';
+                    target.style.borderRadius = '10px';
+                    currentHighlighted = i;
+                    adjustNeeded = false;
+                    break;
+                }
+                if (i == 4 && adjustNeeded && currentHighlighted > -1) {
+                    const target = document.getElementById(`${day}-${currentHighlighted + 1}`);
+                    target.style.backgroundColor = previousBackgroundColor;
+                    target.style.boxShadow = 'none';
+                    target.style.color = 'rgb(33, 37, 41)';
+                    target.style.borderRadius = '0';
+                }
+            }   
+        }
+        setInterval(figureNow, 1000);
     </script>
 </body>
 </html>
