@@ -310,27 +310,27 @@
             {
                 title: 'Databases and Information Systems Helper',
                 detail: `
-                from erdiagram import ER
-g = ER()
-# ...
-g.display()
-Neue Entität zum Graphen hinzufügen
+                from erdiagram import ER<br>
+                g = ER()<br>
+                # ...<br>
+                g.display()<br>
+                Neue Entität zum Graphen hinzufügen<br>
 
-g.add_entity(label, is_multiple = False, is_weak = False)
-Neues Attribut zu einer Entität im Graphen hinzufügen
+                g.add_entity(label, is_multiple = False, is_weak = False)<br>
+                Neues Attribut zu einer Entität im Graphen hinzufügen<br>
 
-g.add_attribute( parent_label, attribute_label,
-                 is_pk = False, is_multiple = False,
-                 is_weak = False, composed_of = [])
-composed_of (=zusammengesetzt aus) erwartet eine Liste von Strings
+                g.add_attribute( parent_label, attribute_label,<br>
+                                is_pk = False, is_multiple = False,<br>
+                                is_weak = False, composed_of = [])<br>
+                composed_of (=zusammengesetzt aus) erwartet eine Liste von Strings<br>
 
-Neue Beziehung (=Relation) zwischen zwei Entitäten hinzufügen
+                Neue Beziehung (=Relation) zwischen zwei Entitäten hinzufügen<br>
 
-g.add_relation(from_entities, relation_label, to_entities)
-Generalisierung / Spezialisierung beschreiben
+                g.add_relation(from_entities, relation_label, to_entities)<br>
+                Generalisierung / Spezialisierung beschreiben<br>
 
-g.add_is_a(super_class_label, sub_class_labels, 
-           is_total, is_disjunct, custom_text = None)
+                g.add_is_a(super_class_label, sub_class_labels, <br>
+                        is_total, is_disjunct, custom_text = None)<br>
                 `
             },
         ]
