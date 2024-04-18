@@ -113,7 +113,7 @@
                 <td class="content" id="mon-1"></td>
                 <td class="content" id="tue-1"></td>
                 <td class="content" id="wed-1"></td>
-                <td class="content" id="thu-1">fdasfda</td>
+                <td class="content" id="thu-1"></td>
                 <td class="content" id="fri-1"></td>
             </tr>
             <tr>
@@ -337,8 +337,6 @@
             `
         })
         let currentHighlighted = -1;
-        let adjustNeeded = true;
-        let previousBackgroundColor = '';
         const figureNow = () => {
             const now = new Date();
             const hour = now.getHours();
@@ -373,27 +371,65 @@
             const min = 0;
             const max = 90;
             for (let i = 0 ; i < 5 ; i ++) {
-                if (min + 120 * i <= distance && distance <= max + 120 * i && currentHighlighted !== i) {
-                    const target = document.getElementById(`${day}-${i + 1}`);
-                    previousBackgroundColor = target.style.backgroundColor;
-                    target.style.backgroundColor = '#75C8FE';
-                    target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
-                    target.style.color = 'white';
-                    target.style.borderRadius = '10px';
-                    currentHighlighted = i;
-                    adjustNeeded = false;
+                // if there is a block that corresponds to a time period
+                if (min + 120 * i <= distance && distance <= max + 120 * i) {
+                    // and we haven't highlighted it yet
+                    if (currentHighlighted !== i) {
+                        const target = document.getElementById(`${day}-${i + 1}`);
+                        target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
+                        target.style.color = 'white';
+                        target.style.borderRadius = '10px';
+                        target.style.backgroundColor = 'rgb(117, 200, 254)';
+                        currentHighlighted = i;
+                        adjustNeeded = false;
+                    } 
                     break;
-                }
-                if (i == 4 && adjustNeeded && currentHighlighted > -1) {
-                    const target = document.getElementById(`${day}-${currentHighlighted + 1}`);
-                    target.style.backgroundColor = previousBackgroundColor;
-                    target.style.boxShadow = 'none';
-                    target.style.color = 'rgb(33, 37, 41)';
-                    target.style.borderRadius = '0';
+                } // so now there is no block
+                else if (i == 4) {
+                    // and we have already highlighted one block previously
+                    if (currentHighlighted > -1) {
+                        const target = document.getElementById(`${day}-${currentHighlighted + 1}`);
+                        target.style.boxShadow = 'none';
+                        target.style.color = 'rgb(33, 37, 41)';
+                        target.style.borderRadius = '0';
+                        target.style.backgroundColor = 'white';
+                        //set currentHighlighted back to -1 so that we know we haven't highlighted any
+                        currentHighlighted = -1;
+                    }
                 }
             }   
         }
         setInterval(figureNow, 1000);
+        const changeTime = (lang) => {
+            const start = 8;
+            const end = 10;
+            let difference = Number(new Date().toLocaleString('en', {timeZone : 'Asia/Bangkok'}).split(',')[1].split(':')[0]) - new Date().getHours();
+            // we need to handle in case the time is PM
+            if (difference < 0) {
+                difference += 12
+            }
+            console.log(difference);
+            if (lang === 'VN') {
+                for (let i = 0 ; i < 5 ; i++) {
+                    document.getElementById(`time-${i + 1}`).innerHTML = `${String(start + 2*i + difference).padStart(2, '0')}:30 - ${String(end + 2*i + difference).padStart(2, '0')}:00`;
+                }
+            } else {
+                for (let i = 0 ; i < 5 ; i++) {
+                    document.getElementById(`time-${i + 1}`).innerHTML = `${String(start + 2*i).padStart(2, '0')}:30 - ${String(end + 2*i).padStart(2, '0')}:00`;
+                }
+            }
+        }
+        const changeTimeButton = document.getElementById('change-time');
+        changeTimeButton.addEventListener('click', () => {
+
+            if (changeTimeButton.innerText === 'VN') {
+                changeTime('VN');
+                changeTimeButton.innerText = 'DE';
+            } else {
+                changeTime('DE');
+                changeTimeButton.innerText = 'VN';
+            }
+        })
     </script>
 </body>
 </html>
