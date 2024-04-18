@@ -307,6 +307,32 @@
                 docker run --pull always -p 8888:8888 registry.git.rwth-aachen.de/i5/teaching/dbis-jupyter/dbis-vl-2023-jupyter-profile-definition/main
                 `
             },
+            {
+                title: 'Databases and Information Systems Helper',
+                detail: `
+                from erdiagram import ER
+g = ER()
+# ...
+g.display()
+Neue Entität zum Graphen hinzufügen
+
+g.add_entity(label, is_multiple = False, is_weak = False)
+Neues Attribut zu einer Entität im Graphen hinzufügen
+
+g.add_attribute( parent_label, attribute_label,
+                 is_pk = False, is_multiple = False,
+                 is_weak = False, composed_of = [])
+composed_of (=zusammengesetzt aus) erwartet eine Liste von Strings
+
+Neue Beziehung (=Relation) zwischen zwei Entitäten hinzufügen
+
+g.add_relation(from_entities, relation_label, to_entities)
+Generalisierung / Spezialisierung beschreiben
+
+g.add_is_a(super_class_label, sub_class_labels, 
+           is_total, is_disjunct, custom_text = None)
+                `
+            },
         ]
         notes.forEach(note => {
             document.getElementById('notes').innerHTML += `
