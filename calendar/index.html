@@ -86,6 +86,9 @@
             border: none;
             width: fit-content
         }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -161,6 +164,7 @@
         const subjects = [
             {
                 name: 'Embedded Systems',
+                href: 'https://moodle.rwth-aachen.de/course/view.php?id=40115&section=0#tabs-tree-start',
                 schedules: [
                     {
                         type: 'Lecture/Exercise',
@@ -178,6 +182,7 @@
             },
             {
                 name: 'Computer Vision',
+                href: 'https://moodle.rwth-aachen.de/course/view.php?id=40198',
                 schedules: [
                     {
                         type: 'Lecture/Exercise',
@@ -193,6 +198,7 @@
             },
             {
                 name: 'Functional Programming',
+                href: 'https://moodle.rwth-aachen.de/course/view.php?id=41685',
                 schedules: [
                     {
                         type: 'Lecture',
@@ -213,6 +219,7 @@
             },
             {
                 name: 'Databases and Information Systems',
+                href: 'https://moodle.rwth-aachen.de/course/view.php?id=39633',
                 schedules: [
                     {
                         type: 'Lecture',
@@ -238,6 +245,7 @@
             },
             {
                 name: 'Deustchkurs Fachsprache',
+                href: 'https://moodle.rwth-aachen.de/course/view.php?id=42562',
                 schedules: [
                     {
                         type: 'Lecture',
@@ -257,7 +265,7 @@
                     ` : (schedule.location ? schedule.location : `<a href='${schedule.zoom}' target="_blank">Open Zoom</a>`);
                 document.getElementById(schedule.time).innerHTML += `
                 <div class='period'>
-                    <div><strong>${subject.name}</strong></div>
+                    <div><a href='${subject.href}' target='_blank'><strong>${subject.name}</strong></a></div>
                     <div>${schedule.type}</div>
                     <div>${location}</div>
                 </div>
@@ -404,16 +412,13 @@
             const upcommingMax = 30;
             for (let i = 0 ; i < 5 ; i ++) {
                 // if there is a block that corresponds to a time period
-                if (min + 120 * i <= distance && distance <= max + 120 * i) {
+                if (min + 120 * i <= distance && distance < max + 120 * i) {
                     // and we haven't highlighted it yet
                     if (currentHighlighted !== i) {
                         const target = document.getElementById(`${day}-${i + 1}`);
                         target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
-                        target.style.color = 'white';
                         target.style.borderRadius = '10px';
-                        target.style.backgroundColor = 'rgb(117, 200, 254)';
                         currentHighlighted = i;
-                        adjustNeeded = false;
                     } 
                     break;
                 } // so now there is no block
@@ -421,10 +426,8 @@
                     // and we have already highlighted one block previously
                     if (currentHighlighted > -1) {
                         const target = document.getElementById(`${day}-${currentHighlighted + 1}`);
-                        target.style.boxShadow = 'none';
-                        target.style.color = 'rgb(33, 37, 41)';
+                        target.style.boxShadow = '';
                         target.style.borderRadius = '0';
-                        target.style.backgroundColor = 'white';
                         //set currentHighlighted back to -1 so that we know we haven't highlighted any
                         currentHighlighted = -1;
                     }
@@ -432,12 +435,11 @@
 
                 // warning there is a upcomming block
                 // if there is a block that corresponds to a time period
-                if (min + 120 * i <= distance && distance <= upcommingMax + 120 * i) {
+                if (min + 120 * i <= distance && distance < upcommingMax + 120 * i) {
                     // and we haven't highlighted it yet
                     if (currentHighlightedWarning !== i) {
                         const target = document.getElementById(`${day}-${i + 1}`);
                         target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
-                        target.style.color = 'white';
                         target.style.borderRadius = '10px';
                         target.style.backgroundColor = 'rgb(255, 193, 7)';
                         currentHighlightedWarning = i;
@@ -448,8 +450,7 @@
                     // and we have already highlighted one block previously
                     if (currentHighlightedWarning > -1) {
                         const target = document.getElementById(`${day}-${currentHighlighted + 1}`);
-                        target.style.boxShadow = 'none';
-                        target.style.color = 'rgb(33, 37, 41)';
+                        target.style.boxShadow = '';
                         target.style.borderRadius = '0';
                         target.style.backgroundColor = 'white';
                         //set currentHighlighted back to -1 so that we know we haven't highlighted any
