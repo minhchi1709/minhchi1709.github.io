@@ -389,12 +389,14 @@
         let currentHighlighted = -1;
         let currentHighlightedWarning = -1;
         const figureNow = () => {
-            const now = new Date();
-            const hour = now.getHours();
-            const minutes = now.getMinutes();
-            document.getElementById('time').innerText = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`
+            const now = new Date().toLocaleString('en', {timeZone : 'Europe/Paris'}).split(',')[1].split(':'); // now = ['hours', 'minutes', 'seconds AM/PM']
+            const hour = Number(now[0]);
+            const minutes = Number(now[1]);
+            const seconds = now[2];
+            const localNow = new Date();
+            document.getElementById('time').innerText = `${String(localNow.getHours() > 12 ? localNow.getHours() - 12 : localNow.getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}:${String(new Date().getSeconds()).padStart(2, '0')} ${localNow.getHours() < 12 ? 'AM' : 'PM'}`
             let day = 0  
-            switch (now.getDay()) {
+            switch (new Date().getDay()) {
                 case 1: 
                     day = 'mon';
                     break;
@@ -418,11 +420,15 @@
                 console.log('today is a rest day');
                 return;
             }
-            let distance = (hour - 8) * 60 + (minutes - 30); // distance from now to 8h30
-            let distanceWarning = (hour - 8) * 60
+            const distance = seconds.includes('PM') && hour < 12 ? (hour + 4) * 60 + (minutes - 30) : (hour - 8) * 60 + (minutes - 30); // distance from now to 8h30
+            const distanceWarning = seconds.includes('PM') && hour < 12 ? (hour + 4) * 60 + minutes : (hour - 8) * 60 + minutes// distance from now to 8h00
+            console.log(distance, currentHighlighted, currentHighlightedWarning)
+            
             const min = 0;
             const max = 90;
             const upcommingMax = 30;
+            console.log(min + 120 * currentHighlighted <= distance && distance < max + 120 * currentHighlighted)
+            console.log(min + 120 * currentHighlightedWarning <= distanceWarning && distanceWarning < upcommingMax + 120 * currentHighlightedWarning)
             for (let i = 0 ; i < 5 ; i ++) {
                 // if there is a block that corresponds to a time period
                 if (min + 120 * i <= distance && distance < max + 120 * i) {
@@ -462,7 +468,7 @@
                 else if (i == 4) {
                     // and we have already highlighted one block previously
                     if (currentHighlightedWarning > -1) {
-                        const target = document.getElementById(`${day}-${currentHighlighted + 1}`);
+                        const target = document.getElementById(`${day}-${currentHighlightedWarning + 1}`);
                         target.style.boxShadow = '';
                         target.style.borderRadius = '0';
                         target.style.backgroundColor = 'white';
