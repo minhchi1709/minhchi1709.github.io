@@ -60,7 +60,7 @@
         const h = document.getElementById('time');
         const daysOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         const title = document.querySelector('title');
-        setInterval(calTime, 1000);
+        
         const startDay = start.getDate();
         const startMonth = start.getMonth() + 1;
         const startYear = start.getFullYear();
@@ -128,6 +128,9 @@
             }
             return [days, months, years];
         }
+
+        calTime();
+        setInterval(calTime, 1000);
     </script>
 </body>
 </html>
