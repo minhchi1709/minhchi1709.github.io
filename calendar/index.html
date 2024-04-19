@@ -324,21 +324,34 @@
                 g.display()<br>
                 Neue Entität zum Graphen hinzufügen<br>
 
-                g.add_entity(label, is_multiple = False, is_weak = False)<br>
+                g.add_entity(label, is_multiple = False, is_weak = False)<br><br>
                 Neues Attribut zu einer Entität im Graphen hinzufügen<br>
 
-                g.add_attribute( parent_label, attribute_label,<br>
-                                is_pk = False, is_multiple = False,<br>
-                                is_weak = False, composed_of = [])<br>
-                composed_of (=zusammengesetzt aus) erwartet eine Liste von Strings<br>
+                g.add_attribute(<br>
+                &emsp;     parent_label, <br>
+                &emsp;     attribute_label,<br>
+                &emsp;     is_pk = False, <br>
+                &emsp;     is_multiple = False,<br>
+                &emsp;     is_weak = False, <br>
+                &emsp;     composed_of = [erwartet eine Liste von Strings]<br>
+                )<br><br>
 
                 Neue Beziehung (=Relation) zwischen zwei Entitäten hinzufügen<br>
+                g.add_relation(<br>
+                &emsp; from_entities, <br>
+                &emsp; relation_label, <br>
+                &emsp; to_entities<br>
+                )<br><br>
 
-                g.add_relation(from_entities, relation_label, to_entities)<br>
                 Generalisierung / Spezialisierung beschreiben<br>
-
-                g.add_is_a(super_class_label, sub_class_labels, <br>
-                        is_total, is_disjunct, custom_text = None)<br>
+                g.add_is_a(<br>
+                super_class_label, <br>
+                sub_class_labels, <br>
+                is_total, <br>
+                is_disjunct, 
+                <br>
+                custom_text = None<br>
+                )<br>
                 `
             },
         ]
