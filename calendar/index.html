@@ -418,7 +418,8 @@
                 console.log('today is a rest day');
                 return;
             }
-            let distance = (hour - 8) * 60 + (minutes - 30);
+            let distance = (hour - 8) * 60 + (minutes - 30); // distance from now to 8h30
+            let distanceWarning = (hour - 8) * 60
             const min = 0;
             const max = 90;
             const upcommingMax = 30;
@@ -447,7 +448,7 @@
 
                 // warning there is a upcomming block
                 // if there is a block that corresponds to a time period
-                if (min + 120 * i <= distance && distance < upcommingMax + 120 * i) {
+                if (min + 120 * i <= distanceWarning && distanceWarning < upcommingMax + 120 * i) {
                     // and we haven't highlighted it yet
                     if (currentHighlightedWarning !== i) {
                         const target = document.getElementById(`${day}-${i + 1}`);
@@ -476,7 +477,8 @@
         const changeTime = (lang) => {
             const start = 8;
             const end = 10;
-            let difference = Number(new Date().toLocaleString('en', {timeZone : 'Asia/Bangkok'}).split(',')[1].split(':')[0]) - new Date().getHours();
+            let difference = Number(new Date().toLocaleString('en', {timeZone : 'Asia/Bangkok'}).split(',')[1].split(':')[0]) - 
+                             Number(new Date().toLocaleString('en', {timeZone : 'Europe/Paris'}).split(',')[1].split(':')[0]);
             // we need to handle in case the time is PM
             if (difference < 0) {
                 difference += 12
