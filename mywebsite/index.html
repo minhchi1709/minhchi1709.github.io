@@ -31,10 +31,6 @@ padding: 0
 padding-right: 0
 } 
 
-#navigation-de, #navigation-vn, #home-de, #home-vn, #about-de, #about-vn, #projects-de, #projects-de {
-    display: none
-}
-
 /* navigation */
 
 .nav-container {
@@ -122,13 +118,6 @@ padding-right: 0
     color: white;
     font-weight: bold;
     height: 100%;
-    /* position: absolute;
-    top: 60%;
-    left: 58%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    width: 50%;
-    padding: 20px; */ 
     text-align: center
 }
 
@@ -146,7 +135,6 @@ padding-right: 0
 
 /* about */
 .about {
-    display: none;
     margin-left: 3vh;
     height: auto;
     max-height: 100vh;
@@ -201,7 +189,7 @@ padding-right: 0
   
 /* projects */
 .projects {
-    display: none;
+   
     margin-left: 3vh;
     height: auto;
     max-height: 100vh;
@@ -225,19 +213,19 @@ a {
 </head>
 <body class="container-fluid">
    <div class="row">
-    <div id="navigation-en" class="col-2 navigation">
+    <div id="navigation" class="col-2 navigation">
         <ul class="nav flex-column nav-container">
             <li class="nav-item">
               <a class="nav-link ava-container">
-                <img src="https://minhchi1709.github.io/mywebsite/img/profile.jpg" alt="profile" class="ava" onclick="handleNavigation('home-en', this)">
+                <img src="https://minhchi1709.github.io/mywebsite/img/profile.jpg" alt="profile" class="ava" onclick="handleNavigation('home', this)">
               </a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" id="nav-about-en" onclick="handleNavigation('about-en', this)">About me</a>
+              <a class="nav-link" id="nav-about" onclick="handleNavigation('about', this)">About me</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="nav-projects-en" onclick="handleNavigation('projects-en', this)">Projects</a>
+              <a class="nav-link" id="nav-projects" onclick="handleNavigation('projects', this)">Projects</a>
             </li>
             <div class="language-container">
                 <a class="language active" id="en" onclick="handleLang('en', this)">EN</a>            
@@ -262,765 +250,592 @@ a {
           </ul>    
     </div>
 
-    <div id="navigation-de" class="col-2 navigation">
-        <ul class="nav flex-column nav-container">
-            <li class="nav-item">
-              <a class="nav-link ava-container">
-                <img src="https://minhchi1709.github.io/mywebsite/img/profile.jpg" alt="profile" class="ava" onclick="handleNavigation('home-de', this)">
-              </a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link" id="nav-about-de" onclick="handleNavigation('about-de', this)">Über mich</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="nav-projects-de" onclick="handleNavigation('projects-de', this)">Projekte</a>
-            </li>
-            <div class="language-container">
-                <a class="language" id="en" onclick="handleLang('en', this)">EN</a>            
-                <a class="language active" id="de" onclick="handleLang('de', this)">DE</a>
-                <a class="language" id="vn" onclick="handleLang('vn', this)">VN</a>
-            </div>
-            <hr>
-            <div class="contact-container">
-              <div class="box">
-                <img src="https://minhchi1709.github.io/mywebsite/img/telephone.png" class="contact-icon" alt="phone">
-                <a href="tel:+4915236769093" class="contact">+4915236769093</a>
-              </div>
-              <div class="box">
-                <img src="https://minhchi1709.github.io/mywebsite/img/gmail.png" class="contact-icon" alt="mail">
-                <a href="mailto:diepminhchi170903@gmail.com" class="contact">diepminhchi170903&#64;gmail.com</a>
-              </div>
-              <div class="box">
-                <img src="https://minhchi1709.github.io/mywebsite/img/linkedin.png" class="contact-icon" alt="linkedin">
-                <a href="https://www.linkedin.com/in/diepminhchi/" class="contact" target="_blank">diepminhchi</a>
-              </div>
-            </div>
-          </ul>    
-    </div>
-
-    <div id="navigation-vn" class="col-2 navigation">
-      <ul class="nav flex-column nav-container">
-          <li class="nav-item">
-            <a class="nav-link ava-container">
-              <img src="https://minhchi1709.github.io/mywebsite/img/profile.jpg" alt="profile" class="ava" onclick="handleNavigation('home-vn', this)">
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" id="nav-about-vn" onclick="handleNavigation('about-vn', this)">Về tôi</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="nav-projects-vn" onclick="handleNavigation('projects-vn', this)">Dự án</a>
-          </li>
-          <div class="language-container">
-              <a class="language" id="en" onclick="handleLang('en', this)">EN</a>            
-              <a class="language" id="de" onclick="handleLang('de', this)">DE</a>
-              <a class="language active" id="vn" onclick="handleLang('vn', this)">VN</a>
-          </div>
-          <hr>
-          <div class="contact-container">
-            <div class="box">
-              <img src="https://minhchi1709.github.io/mywebsite/img/telephone.png" class="contact-icon" alt="phone">
-              <a href="tel:+4915236769093" class="contact">+4915236769093</a>
-            </div>
-            <div class="box">
-              <img src="https://minhchi1709.github.io/mywebsite/img/gmail.png" class="contact-icon" alt="mail">
-              <a href="mailto:diepminhchi170903@gmail.com" class="contact">diepminhchi170903&#64;gmail.com</a>
-            </div>
-            <div class="box">
-              <img src="https://minhchi1709.github.io/mywebsite/img/linkedin.png" class="contact-icon" alt="linkedin">
-              <a href="https://www.linkedin.com/in/diepminhchi/" class="contact" target="_blank">diepminhchi</a>
-            </div>
-          </div>
-        </ul>    
-    </div>
-
-    <div id="home-en" class="col home">
+    <div id="home" class="col home">
         <div id="welcome">
-            <h1>WELCOME TO MY WEBSITE</h1>
         </div>
     </div>
 
-    <div id="home-de" class="col home">
-      <div id="welcome">
-          <h1>WILLKOMMEN ZU MEINER WEBSITE</h1>
-      </div>
+    <div id="about" class="col about" hidden>
     </div>
 
-    <div id="home-vn" class="col home">
-      <div id="welcome">
-          <h1>CHÀO MỪNG ĐẾN VỚI WEB CỦA TÔI</h1>
-      </div>
-    </div>
-
-    <div id="about-en" class="col about">
-        <div class="route-container">
-            <h2 class="title">Personal Information</h2>
-            <ul>
-              <li>
-                <strong>Firstname:</strong> Minh Chi
-              </li>
-              <li>
-                <strong>Lastname:</strong> Diep
-              </li>
-              <li>
-                <strong>Nationality:</strong> Vietnamese
-              </li>
-              <li>
-                <strong>Birthday:</strong> 17/09/2003
-              </li>
-              <li>
-                <strong>Birthplace:</strong> Ho Chi Minh City, Vietnam
-              </li>
-            </ul>
-          
-            <hr>
-          
-            <h2 class="title">Skills</h2>
-            <ul>
-              <li>
-                <strong>Backend Development</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('backend-en', this)">
-                <ul id="backend-en" class="content">
-                  <li>
-                    Python
-                    <ul>
-                      <li>Flask</li>
-                      <li>Django</li>
-                    </ul>
-                  </li>
-                  <li>
-                    Java
-                    <ul>
-                      <li>Spring Boot</li>
-                    </ul>
-                  </li>
-                  <li>
-                    Javascript
-                    <ul>
-                      <li>NodeJs</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-          
-              <li>
-                <strong>Frontend Development</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('frontend-en', this)">
-                <ul id="frontend-en" class="content">
-                  <li>HTML</li>
-                  <li>CSS</li>
-                  <li>Angular</li>
-                  <li>Bootstrap</li>
-                </ul>
-              </li>
-          
-              <li>
-                <strong>Miscellaneous</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('miscellaneous-en')">
-                <ul id="miscellaneous-en" class="content">
-                  <li>Machine Learning</li>
-                  <li>Data Science</li>
-                  <li>SQL and NoSQL Databases</li>
-                </ul>
-              </li>
-          
-              <li>
-                <strong>Soft Skills</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('soft-skills-en')">
-                <ul id="soft-skills-en" class="content">
-                  <li>Team Player</li>
-                  <li>Bias For Actions</li>
-                </ul>
-              </li>
-            </ul>
-          
-            <hr>
-          
-            <h2 class="title">Education</h2> Currently a 4-semester Computer Science student at RWTH Aachen
-            <ul>
-              <li>
-                <strong>Le Hong Phong High School for the gifted:</strong> from 08/2018 to 07/2021
-              </li>
-              <li>
-                <strong>FH Aachen Institute:</strong> from 10/2021 to 07/2022
-              </li>
-              <li>
-                <strong>RWTH Aachen:</strong> from 10/2022 till now
-              </li>
-            </ul>
-          
-            <hr>
-          
-            <h2 class="title">Achievements</h2>
-            <ul>
-              <li>
-                <strong>First prize at city-level Math Competition for the gifted:</strong> 03/2021
-              </li>
-              <li>
-                <strong>1.0 at HM4MINT Math Test organized by RWTH Aachen:</strong> 04/2022
-              </li>
-            </ul>
-          
-            <hr>
-          
-            <h2 class="title">Interests</h2>
-            <ul>
-              <li>
-                <strong>Playing Badminton</strong>
-              </li>
-              <li>
-                <strong>Doing Gym</strong>
-              </li>
-              <li>
-                <strong>Playing Games</strong>
-              </li>
-              <li>
-                <strong>Travelling</strong>
-              </li>
-              <li>
-                <strong>Food</strong>
-              </li>
-            </ul>
-          
-          </div>          
-    </div>
-
-    <div id="about-de" class="col about">
-      <div class="route-container">
-          <h2 class="title">Private Informationen</h2>
-          <ul>
-            <li>
-              <strong>Vorname:</strong> Minh Chi
-            </li>
-            <li>
-              <strong>Nachname:</strong> Diep
-            </li>
-            <li>
-              <strong>Nationalität:</strong> Vietnamesisch
-            </li>
-            <li>
-              <strong>Geburtstag:</strong> 17/09/2003
-            </li>
-            <li>
-              <strong>Geburtsort:</strong> Ho Chi Minh Stadt, Vietnam
-            </li>
-          </ul>
-        
-          <hr>
-        
-          <h2 class="title">Skills</h2>
-          <ul>
-            <li>
-              <strong>Backend Entwicklung</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('backend-de', this)">
-              <ul id="backend-de" class="content">
-                <li>
-                  Python
-                  <ul>
-                    <li>Flask</li>
-                    <li>Django</li>
-                  </ul>
-                </li>
-                <li>
-                  Java
-                  <ul>
-                    <li>Spring Boot</li>
-                  </ul>
-                </li>
-                <li>
-                  Javascript
-                  <ul>
-                    <li>NodeJs</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-        
-            <li>
-              <strong>Frontend Entwicklung</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('frontend-de', this)">
-              <ul id="frontend-de" class="content">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Angular</li>
-                <li>Bootstrap</li>
-              </ul>
-            </li>
-        
-            <li>
-              <strong>Verschiedene</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('miscellaneous-de')">
-              <ul id="miscellaneous-de" class="content">
-                <li>Machine Learning</li>
-                <li>Data Science</li>
-                <li>SQL und NoSQL Datenbanken</li>
-              </ul>
-            </li>
-        
-            <li>
-              <strong>Soft Skills</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('soft-skills-de')">
-              <ul id="soft-skills-de" class="content">
-                <li>Team Player</li>
-                <li>Bias For Actions</li>
-              </ul>
-            </li>
-          </ul>
-        
-          <hr>
-        
-          <h2 class="title">Ausbildung</h2> Zurzeit ein im 4. Semester eingeschriebener Informatik-Student an der RWTH Aachen
-          <ul>
-            <li>
-              <strong>Le Hong Phong High School für Hochbegabte:</strong> von 08/2018 bis 07/2021
-            </li>
-            <li>
-              <strong>FH Aachen Institut:</strong> von 10/2021 bis 07/2022
-            </li>
-            <li>
-              <strong>RWTH Aachen:</strong> von 10/2022 bis jetzt
-            </li>
-          </ul>
-        
-          <hr>
-        
-          <h2 class="title">Ausgezeichnete Erfolge</h2>
-          <ul>
-            <li>
-              <strong>Erster Preis beim städtischen Mathematikwettbewerb für Hochbegabte:</strong> 03/2021
-            </li>
-            <li>
-              <strong>1.0 im HM4MINT-Mathematiktest geleitet von der RWTH Aachen:</strong> 04/2022
-            </li>
-          </ul>
-        
-          <hr>
-        
-          <h2 class="title">Interesse</h2>
-          <ul>
-            <li>
-              <strong>Badminton Spielen</strong>
-            </li>
-            <li>
-              <strong>Gym Machen</strong>
-            </li>
-            <li>
-              <strong>Games Spielen</strong>
-            </li>
-            <li>
-              <strong>Reisen</strong>
-            </li>
-            <li>
-              <strong>Essen</strong>
-            </li>
-          </ul>
-        
-        </div>          
-    </div>
-
-    <div id="about-vn" class="col about">
-      <div class="route-container">
-          <h2 class="title">Thông Tin Cá Nhân</h2>
-          <ul>
-            <li>
-              <strong>Tên:</strong> Minh Chí
-            </li>
-            <li>
-              <strong>Họ:</strong> Diệp
-            </li>
-            <li>
-              <strong>Quốc Tịch:</strong> Việt Nam
-            </li>
-            <li>
-              <strong>Ngày Sinh:</strong> 17/09/2003
-            </li>
-            <li>
-              <strong>Nơi Sinh:</strong> Thành phố Hồ Chí Minh, Việt Nam
-            </li>
-          </ul>
-        
-          <hr>
-        
-          <h2 class="title">Kĩ Năng</h2>
-          <ul>
-            <li>
-              <strong>Backend Development</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('backend-vn', this)">
-              <ul id="backend-vn" class="content">
-                <li>
-                  Python
-                  <ul>
-                    <li>Flask</li>
-                    <li>Django</li>
-                  </ul>
-                </li>
-                <li>
-                  Java
-                  <ul>
-                    <li>Spring Boot</li>
-                  </ul>
-                </li>
-                <li>
-                  Javascript
-                  <ul>
-                    <li>NodeJs</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-        
-            <li>
-              <strong>Frontend Development</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('frontend-vn', this)">
-              <ul id="frontend-vn" class="content">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Angular</li>
-                <li>Bootstrap</li>
-              </ul>
-            </li>
-        
-            <li>
-              <strong>Khác</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('miscellaneous-vn')">
-              <ul id="miscellaneous-vn" class="content">
-                <li>Machine Learning (Học Máy)</li>
-                <li>Data Science (Khoa Học Dữ Liệu)</li>
-                <li>SQL und NoSQL Databases (Cơ Sở Dữ Liệu SQL và NoSQL)</li>
-              </ul>
-            </li>
-        
-            <li>
-              <strong>Kỹ Năng Mềm</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('soft-skills-vn')">
-              <ul id="soft-skills-vn" class="content">
-                <li>Hoạt Động Nhóm</li>
-                <li>Thiên Về Hoạt Động</li>
-              </ul>
-            </li>
-          </ul>
-        
-          <hr>
-        
-          <h2 class="title">Học Vấn</h2> Hiện là sinh viên học kì thứ 4 chuyên ngành Khoa Học Máy Tính ở RWTH Aachen
-          <ul>
-            <li>
-              <strong>Trường Trung học Phổ Thông Chuyên Lê Hồng Phong:</strong> từ 08/2018 đến 07/2021
-            </li>
-            <li>
-              <strong>Viện FH Aachen:</strong> từ 10/2021 đến 07/2022
-            </li>
-            <li>
-              <strong>RWTH Aachen:</strong> từ 10/2022 đến hiện tại
-            </li>
-          </ul>
-        
-          <hr>
-        
-          <h2 class="title">Thành Tích Nổi Bật</h2>
-          <ul>
-            <li>
-              <strong>Giải nhất học sinh giỏi Toán chuyên Thành phố:</strong> 03/2021
-            </li>
-            <li>
-              <strong>Đạt điểm 1.0 trong cuộc thi Toán HM4MINT tổ chức bởi Trường RWTH Aachen:</strong> 04/2022
-            </li>
-          </ul>
-        
-          <hr>
-        
-          <h2 class="title">Sở thích</h2>
-          <ul>
-            <li>
-              <strong>Cầu Lông</strong>
-            </li>
-            <li>
-              <strong>Gym</strong>
-            </li>
-            <li>
-              <strong>Chơi Games</strong>
-            </li>
-            <li>
-              <strong>Du Lịch</strong>
-            </li>
-            <li>
-              <strong>Ăn Uống</strong>
-            </li>
-          </ul>
-        
-        </div>          
-    </div>
-
-    <div id="projects-en" class="col projects">
-        <div class="route-container">
-            <h2>
-              <a href="https://github.com/minhchi1709/cs50-finance" target="_blank" class="project-link">Finance</a>
-            </h2>
-            <ul>
-              <li>
-                <strong>Brief Description:</strong> simulation of stock buying with help of Yahoo, we fetch data from Yahoo and then handle business logics.
-              </li>
-              <li>
-                <strong>Technologies and Languages used:</strong> Python, Flask and SQLite
-              </li>
-            </ul>
-            <hr>
-          
-            <h2>
-              <a href="https://github.com/minhchi1709/commerce" target="_blank" class="project-link">E-Commerce</a>
-            </h2>
-            <ul>
-              <li>
-                <strong>Brief Description:</strong> auction bidding and buying platform.
-              </li>
-              <li>
-                <strong>Technologies and Languages used:</strong> Python, Django and SQLite
-              </li>
-            </ul>
-            <hr>
-          
-            <h2>
-              <a href="https://github.com/minhchi1709/mail" target="_blank" class="project-link">Mail</a>
-            </h2>
-            <ul>
-              <li>
-                <strong>Brief Description:</strong> simple mail platform, users can send, read, answer and archive mails.
-              </li>
-              <li>
-                <strong>Technologies and Languages used:</strong> Python, Django and SQLite
-              </li>
-            </ul>
-            <hr>
-          
-            <h2>
-              <a href="https://github.com/minhchi1709/network" target="_blank" class="project-link">Social Network</a>
-            </h2>
-            <ul>
-              <li>
-                <strong>Brief Description:</strong> simple social network, users can follow other users, create and comment posts.
-              </li>
-              <li>
-                <strong>Technologies and Languages used:</strong> Python, Django and SQLite
-              </li>
-            </ul>
-            <hr>
-          
-            <h2>
-              <a href="https://github.com/minhchi1709/LearningPlatform" target="_blank" class="project-link">Learning Platform</a>
-            </h2>
-            <ul>
-              <li>
-                <strong>Brief Description:</strong> simple learning platform, users can create and register courses. User must authenticate registration and changing password when forgetting by email verification.
-              </li>
-              <li>
-                <strong>Technologies and Languages used:</strong> Java, Spring boot and PostgreSQL
-              </li>
-            </ul>
-          </div>          
-    </div>
-
-    <div id="projects-de" class="col projects">
-      <div class="route-container">
-          <h2>
-            <a href="https://github.com/minhchi1709/cs50-finance" target="_blank" class="project-link">Finanz</a>
-          </h2>
-          <ul>
-            <li>
-              <strong>Kurze Beschreibung:</strong> Simulation von Stock-Kaufen mithilfe von Yahoo, wir holen Daten aus Yahoo und dann verarbeiten Betriebslogiken.
-            </li>
-            <li>
-              <strong>Verwendete Technologien und Sprachen:</strong> Python, Flask und SQLite
-            </li>
-          </ul>
-          <hr>
-        
-          <h2>
-            <a href="https://github.com/minhchi1709/commerce" target="_blank" class="project-link">E-Commerce</a>
-          </h2>
-          <ul>
-            <li>
-              <strong>Kurze Beschreibung:</strong> Auktionsgebots- und Kaufplattform.
-            </li>
-            <li>
-              <strong>Verwendete Technologien und Sprachen:</strong> Python, Django und SQLite
-            </li>
-          </ul>
-          <hr>
-        
-          <h2>
-            <a href="https://github.com/minhchi1709/mail" target="_blank" class="project-link">Mail</a>
-          </h2>
-          <ul>
-            <li>
-              <strong>Kurze Beschreibung:</strong> einfache Mail-Plattform, auf der Benutzer E-Mails senden, lesen, beantworten und archivieren können.
-            </li>
-            <li>
-              <strong>Verwendete Technologien und Sprachen:</strong> Python, Django und SQLite
-            </li>
-          </ul>
-          <hr>
-        
-          <h2>
-            <a href="https://github.com/minhchi1709/network" target="_blank" class="project-link">Soziales Netzwerk</a>
-          </h2>
-          <ul>
-            <li>
-              <strong>Kurze Beschreibung:</strong> einfaches soziales Netzwerk, Benutzer können anderen Benutzern folgen, Beiträge erstellen und kommentieren.
-            </li>
-            <li>
-              <strong>Verwendete Technologien und Sprachen:</strong> Python, Django und SQLite
-            </li>
-          </ul>
-          <hr>
-        
-          <h2>
-            <a href="https://github.com/minhchi1709/LearningPlatform" target="_blank" class="project-link">Lernplattform</a>
-          </h2>
-          <ul>
-            <li>
-              <strong>Kurze Beschreibung:</strong> einfache Lernplattform, Benutzer können Kurse erstellen und anmelden. Der Benutzer muss sich bei der Registrierung und Änderung des Passworts authentifizieren, wenn er dies per E-Mail-Bestätigung vergisst.
-            </li>
-            <li>
-              <strong>Verwendete Technologien und Sprachen:</strong> Java, Spring boot und PostgreSQL
-            </li>
-          </ul>
-        </div>          
-    </div>
-
-    <div id="projects-vn" class="col projects">
-      <div class="route-container">
-          <h2>
-            <a href="https://github.com/minhchi1709/cs50-finance" target="_blank" class="project-link">Tài Chính</a>
-          </h2>
-          <ul>
-            <li>
-              <strong>Mô tả ngắn:</strong> mô phỏng việc mua và bán cổ phiếu với sự giúp đỡ từ Yahoo, chúng ta lấy dữ liệu từ Yahoo và xử lý chúng.
-            </li>
-            <li>
-              <strong>Công nghệ và Ngôn ngữ sử dụng:</strong> Python, Flask và SQLite
-            </li>
-          </ul>
-          <hr>
-        
-          <h2>
-            <a href="https://github.com/minhchi1709/commerce" target="_blank" class="project-link">Thương Mại Điện Tử</a>
-          </h2>
-          <ul>
-            <li>
-              <strong>Mô tả ngắn:</strong> sàn đấu giá và mua vật phẩm.
-            </li>
-            <li>
-              <strong>Công nghệ và Ngôn ngữ sử dụng:</strong> Python, Django và SQLite
-            </li>
-          </ul>
-          <hr>
-        
-          <h2>
-            <a href="https://github.com/minhchi1709/mail" target="_blank" class="project-link">Mail</a>
-          </h2>
-          <ul>
-            <li>
-              <strong>Mô tả ngắn:</strong> platform mail đơn giản, người dùng có thể đọc, gửi, trả lời và lưu mail.
-            </li>
-            <li>
-              <strong>Công nghệ và Ngôn ngữ sử dụng:</strong> Python, Django và SQLite
-            </li>
-          </ul>
-          <hr>
-        
-          <h2>
-            <a href="https://github.com/minhchi1709/network" target="_blank" class="project-link">Mạng Xã Hội</a>
-          </h2>
-          <ul>
-            <li>
-              <strong>Mô tả ngắn:</strong> mạng xã hội đơn giản, người dùng có thể theo dõi nhau, tạo và bình luận bài viết.
-            </li>
-            <li>
-              <strong>Công nghệ và Ngôn ngữ sử dụng:</strong> Python, Django và SQLite
-            </li>
-          </ul>
-          <hr>
-        
-          <h2>
-            <a href="https://github.com/minhchi1709/LearningPlatform" target="_blank" class="project-link">Learning Platform</a>
-          </h2>
-          <ul>
-            <li>
-              <strong>Mô tả ngắn:</strong> nền tảng học đơn giản, người dùng có thể tạo và đăng ký khóa học. Người dùng phải xác thực khi đăng ký tài khoản và đổi mật khẩu khi quên mật khẩu cũ bằng cách xác thực qua email.
-            </li>
-            <li>
-              <strong>Công nghệ và Ngôn ngữ sử dụng:</strong> Java, Spring boot và PostgreSQL
-            </li>
-          </ul>
-        </div>          
+    <div id="projects" class="col projects" hidden>
     </div>
 
    </div>
    <script>
+    const langs = ['en', 'de', 'vn'];
+    const pages = ['welcome', 'about', 'projects']
+    // load navigation
+    const about = {
+      en: 'About me',
+      de: 'Über mich',
+      vn: 'Về tôi'
+    }
+    const project = {
+      en: 'Projects',
+      de: 'Projekte',
+      vn: 'Dự án'
+    }
+    const loadNav = (lang) => {
+      if (!langs.includes(lang)) {
+        alert(`Language ${lang} is not supported`);
+        return;
+      }
+      const navAbout = document.getElementById('nav-about');
+      const navProject = document.getElementById('nav-projects');
+      navAbout.innerHTML = about[lang];
+      navProject.innerHTML = project[lang];
+      document.querySelectorAll('.language').forEach(e => {
+        e.classList.remove('active');
+      })
+      document.getElementById(lang).classList.add('active');
+    }
+    // load welcome
+    const welcome = {
+      en: 'WELCOME TO MY WEBSITE',
+      de: 'WILLKOMMEN ZU MEINER WEBSITE',
+      vn: 'WELCOME TO MY WEBSITE'
+    }
+    const loadWelcome = (lang) => {
+      if (!langs.includes(lang)) {
+        alert(`Language ${lang} is not supported`);
+        return;
+      }
+      const homeWelcome = document.getElementById('welcome');
+      homeWelcome.innerHTML = `
+      <h1>${welcome[lang]}</h1>
+      `;
+    }
+    // load about
+    const personal = {
+      en: 'Personal Information',
+      de: 'Private Informationen',
+      vn: 'Thông Tin Cá Nhân'
+    }
+    const personalContent = {
+      en:{ 
+        'Firstname': 'Minh Chi',
+        'Lastname': 'Diep',
+        'Nationality': 'Vietnam',
+        'Birthday': '17/09/2003',
+        'Birthplace': 'Ho Chi Minh City, Vietnam'
+      },
+      de: {
+        'Vorname': 'Minh Chi',
+        'Nachname': 'Diep',
+        'Nationalität': 'Vietnam',
+        'Geburtstag': '17/09/2003',
+        'Geburtsort': 'Ho Chi Minh Stadt, Vietnam'
+      },
+      vn: {
+        'Tên': 'Minh Chí',
+        'Họ': 'Diệp',
+        'Quốc Tịch': 'Việt Nam',
+        'Ngày Sinh': '17/09/2003',
+        'Nơi Sinh': 'Thành phố Hồ Chí Minh, Việt Nam'
+      }
+    }
+    const skills = {
+      en: 'Skills',
+      de: 'Skills',
+      vn: 'Kĩ Năng'
+    }
+    const backend = {
+      en: 'Backend Development',
+      de: 'Backend Entwicklung',
+      vn: 'Backend Development'
+    }
+    const backendContent = {
+      Python: ['Flask', 'Django'],
+      Java: ['Spring boot'],
+      Javascript: ['NodeJs']
+    }
+    const frontend = {
+      en: 'Frontend Development',
+      de: 'Frontend Entwicklung',
+      vn: 'Frontend Development'
+    }
+    const frontendContent = ['HTML', 'CSS', 'Angular', 'Bootstrap']
+    const softSkills = {
+      en: 'Soft Skills',
+      de: 'Soft Skills',
+      vn: 'Kỹ Năng Mềm'
+    }
+    const softSkillsContent = {
+      en: ['Team Player', 'Bias For Actions'],
+      de: ['Team Player', 'Bias For Actions'],
+      vn: ['Hoạt Động Nhóm', 'Thiên Về Hoạt Động']
+    }
+    const others = {
+      en: 'Miscellaneous',
+      de: 'Verschiedene',
+      vn: 'Khác'
+    }
+    const othersContent = {
+      en: ['Machine Learning', 'Data Science', 'SQL and NoSQL Databases'],
+      de: ['Machine Learning', 'Data Science', 'SQL and NoSQL Datenbanken'],
+      vn: ['Machine Learning (Học Máy)', 'Data Science (Khoa Học Dữ Liệu)', 'SQL und NoSQL Databases (Cơ Sở Dữ Liệu SQL và NoSQL)']
+    }
+    const edu = {
+      en: 'Education',
+      de: 'Ausbildung',
+      vn: 'Học Vấn'
+    }
+    const eduContent = {
+      en: 'Currently a 4-semester Computer Science Student at RWTH Aachen',
+      de: 'Derzeit ein im 4. Semester eingeschriebener Informatik-Student an der RWTH Aachen',
+      vn: 'Hiện là sinh viên học kì thứ 4 chuyên ngành Khoa Học Máy Tính tại RWTH Aachen'
+    }
+    const schools = {
+      en: {
+        'Le Hong Phong High School for the gifted': 'from 08/2018 to 07/2021',
+        'FH Aachen Institute': 'from 10/2021 to 07/2022',
+        'RWTH Aachen': 'from 10/2022 till now'
+      }, 
+      de: {
+        'Le Hong Phong High School für Hochbegabte': 'von 08/2018 bis 07/2021',
+        'FH Aachen Institut': 'von 10/2021 bis 07/2022',
+        'RWTH Aachen': 'von 10/2022 bis jetzt'
+      },
+      vn: {
+        'Trường Trung học Phổ Thông Chuyên Lê Hồng Phong': 'từ 08/2018 đến 07/2021',
+        'Viện FH Aachen': 'từ 10/2021 đến 07/2022',
+        'RWTH Aachen': 'từ 10/2022 đến hiện tại'
+      }
+    }
+    const achievements = {
+      en: 'Achievements',
+      de: 'Ausgezeichnete Erfolge',
+      vn: 'Thành Tích Nổi Bật'
+    }
+    const achievementsObjects = {
+        city: {
+          time: '03/2021', 
+          id: 'city',
+          src: 'https://minhchi1709.github.io/mywebsite/img/city.jpeg'
+        },
+        hm4mint: {
+          time: '04/2022',
+          id: 'hm4mint',
+          src: 'https://minhchi1709.github.io/mywebsite/img/hm4mint.jpg'
+        }
+    }
+    const achievementsContent = {
+      en: {
+        'First prize at city-level Math Competition for the gifted': achievementsObjects.city,
+        'The only 1.0 at HM4MINT Math Test organized by RWTH Aachen': achievementsObjects.hm4mint
+      },
+      de: {
+        'Erster Preis beim städtischen Mathematikwettbewerb für Hochbegabte': achievementsObjects.city,
+        'Die einzige 1.0 im HM4MINT-Mathematiktest geleitet von der RWTH Aachen': achievementsObjects.hm4mint
+      },
+      vn: {
+        'Giải nhất học sinh giỏi Toán chuyên Thành phố': achievementsObjects.city,
+        'Đạt điểm 1.0 trong cuộc thi Toán HM4MINT tổ chức bởi Trường RWTH Aachen': achievementsObjects.hm4mint
+      }
+    }
+    const interests = {
+      en: 'Interests',
+      de: 'Interesse',
+      vn: 'Sở thích'
+    }
+    const interestsContent = {
+      en: ['Travelling', 'Badminton', 'Doing Gym', 'Nutrition', 'Playing Games'],
+      de: ['Reisen', 'Badminton', 'Gym', 'Ernährung', 'Games Spielen'],
+      vn: ['Du Lịch', 'Cầu Lông', 'Gym', 'Dinh Dưỡng', 'Chơi Games']
+    }
+    const travelling = [
+      {
+        location: 'Opera House, Sydney, Australia',
+        id: 'opera',
+        src: 'https://minhchi1709.github.io/mywebsite/img/opera.jpg'
+      },
+      {
+        location: 'Brandenburger Tor, Berlin, Deutschland',
+        id: 'brandenburg',
+        src: 'https://minhchi1709.github.io/mywebsite/img/brandenburg.jpg'
+      },
+      {
+        location: 'Phan Thiết, Việt Nam',
+        id: 'phanthiet',
+        src: 'https://minhchi1709.github.io/mywebsite/img/phanthiet.jpg'
+      },
+      {
+        location: 'Manneken, Brussels, Belgium',
+        id: 'manneken',
+        src: 'https://minhchi1709.github.io/mywebsite/img/manneken.jpg'
+      },
+      {
+        location: 'Atomium, Brussels, Belgium',
+        id: 'atomium',
+        src: 'https://minhchi1709.github.io/mywebsite/img/atomium.jpg'
+      },
+      {
+        location: 'Arc de Triomphe, Paris, France',
+        id: 'triomphe',
+        src: 'https://minhchi1709.github.io/mywebsite/img/triomphe.jpg'
+      },
+      {
+        location: 'Tour Eiffel, Paris, France',
+        id: 'eiffel',
+        src: 'https://minhchi1709.github.io/mywebsite/img/eiffel.jpg'
+      },
+      {
+        location: 'Mongoland, Đà Lạt, Việt Nam',
+        id: 'mongoland',
+        src: 'https://minhchi1709.github.io/mywebsite/img/mongoland.jpg'
+      },
+    ]
+    const loadAbout = (lang) => {
+      if (!langs.includes(lang)) {
+        alert(`Language ${lang} is not supported`);
+        return;
+      }
+      const about = document.getElementById('about');
+      // personal information
+      let temp = `
+      <h2 class='title'>${personal[lang]}</h2>
+      <ul>
+      `
+      Object.keys(personalContent[lang]).forEach(c => {
+        temp += `
+        <li><strong>${c}: </strong>${personalContent[lang][c]}</li>
+        `
+      })
+      // backend
+      temp += `
+      </ul>
+      <hr>
+      <h2 class='title'>${skills[lang]}</h2>
+      <ul>
+        <li><strong>${backend[lang]}</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('backend', this)">
+        <ul id='backend' class='content'>
+      `
+      Object.keys(backendContent).forEach(c => {
+        temp += `
+        <li>${c}
+          <ul>
+        `
+        backendContent[c].forEach(f => {
+          temp += `
+          <li>${f}</li>`
+        })
+        temp += `
+          </ul>
+        </li>
+        `
+      })
+      temp += `
+        </ul>
+        </li>`
+
+      // frontend
+        temp += `
+        <li><strong>${frontend[lang]}</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('frontend', this)">
+        <ul id='frontend' class='content'>
+      `
+      frontendContent.forEach(c => {
+        temp += `<li>${c}</li>`
+      })
+      temp += '</ul></li>'
+
+      // soft skills
+      temp += `
+        <li><strong>${softSkills[lang]}</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('softskills', this)">
+        <ul id='softskills' class='content'>
+      `
+      softSkillsContent[lang].forEach(c => {
+        temp += `<li>${c}</li>`
+      })
+      temp += '</ul></li>'
+
+      // others
+      temp += `
+        <li><strong>${others[lang]}</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('others', this)">
+        <ul id='others' class='content'>
+      `
+      othersContent[lang].forEach(c => {
+        temp += `<li>${c}</li>`
+      })
+      temp += '</ul></li></ul><hr>'
+
+      // education
+      temp += `
+      <h2 class='title'>${edu[lang]}</h2>
+      <span style='font-style:italic'>${eduContent[lang]}</span>
+      <ul>
+      `
+      Object.keys(schools[lang]).forEach(s => {
+        temp += `
+        <li><strong>${s}:</strong> ${schools[lang][s]}</li>
+        `
+      })
+      temp += '</ul><hr>'
+
+      // achievements
+      temp += `
+      <h2 class='title'>${achievements[lang]}</h2>
+      <ul>
+      `
+      Object.keys(achievementsContent[lang]).forEach(s => {
+        temp += `
+        <li><strong>${s}:</strong> ${achievementsContent[lang][s]['time']}
+          <img 
+          src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" 
+          class="icon" 
+          alt="dropdown" 
+          onclick="onClick('${achievementsContent[lang][s]['id']}', this)"
+          >
+          <img class='content' 
+          id='${achievementsContent[lang][s]['id']}' 
+          src='${achievementsContent[lang][s]['src']}' 
+          alt='${achievementsContent[lang][s]['id']}'
+          style='width: 50%'
+          >
+        </li>
+        `
+      })
+      temp += '</ul><hr>'
+
+      // interests
+      temp += `
+      <h2 class='title'>${interests[lang]}</h2>
+      <ul>
+      `
+      interestsContent[lang].forEach(c => {
+        if (c === 'Travelling' || c === 'Reisen' || c === 'Du Lịch') {
+          temp += `
+          <li><strong>${c}</strong>
+          <img 
+          src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" 
+          class="icon" 
+          alt="dropdown" 
+          onclick="onClick('travelling', this)"
+          >
+          <ul id='travelling' class='content'>
+          `
+          travelling.forEach(t => {
+            temp += `
+            <li>${t.location}
+            <img 
+            src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" 
+            class="icon" 
+            alt="dropdown" 
+            onclick="onClick('${t.id}', this)"
+            >
+            <img
+            id=${t.id}
+            src='${t.src}'
+            class='content'
+            alt='${t.id}'
+            style='width: 60%'
+            >
+            </li>
+            `
+          })
+          temp += '</ul></li>'
+        } else {
+          temp += `<li><strong>${c}</strong></li>`
+        }
+      })
+      about.innerHTML = temp;
+    }
+    const projects = {
+      en: {
+        'Finance': {
+          href: 'https://github.com/minhchi1709/cs50-finance',
+          'Brief Description:': 'simulation of stock buying with help of Yahoo, we fetch data from Yahoo and then handle business logics.',
+          'Technologies and Languages used:': 'Python, Flask and SQLite'
+        },
+        'E-Commerce': {
+          href: 'https://github.com/minhchi1709/commerce',
+          'Brief Description:': 'auction bidding and buying platform.',
+          'Technologies and Languages used:': 'Python, Django and SQLite'
+        },
+        'Mail': {
+          href: 'https://github.com/minhchi1709/mail',
+          'Brief Description:': 'simple mail platform, users can send, read, answer and archive mails.',
+          'Technologies and Languages used:': 'Python, Django and SQLite'
+        },
+        'Social Network': {
+          href: 'https://github.com/minhchi1709/network',
+          'Brief Description:': 'simple social network, users can follow other users, create and comment posts.',
+          'Technologies and Languages used:': 'Python, Django and SQLite'
+        },
+        'Learning Platform': {
+          href: 'https://github.com/minhchi1709/LearningPlatform',
+          'Brief Description:': 'simple learning platform, users can create and register courses. User must authenticate registration and changing password when forgetting by email verification.',
+          'Technologies and Languages used:': 'Java, Spring boot and PostgreSQL'
+        },
+      },
+      de: {
+        'Finanz': {
+          href: 'https://github.com/minhchi1709/cs50-finance',
+          'Kurze Beschreibung:': 'Simulation von Stock-Kaufen mithilfe von Yahoo, wir holen Daten aus Yahoo und dann verarbeiten Betriebslogiken.',
+          'Verwendete Technologien und Sprachen:': 'Python, Flask und SQLite'
+        },
+        'E-Commerce': {
+          href: 'https://github.com/minhchi1709/commerce',
+          'Kurze Beschreibung:': 'Auktionsgebots- und Kaufplattform.',
+          'Verwendete Technologien und Sprachen:': 'Python, Django und SQLite'
+        },
+        'Mail': {
+          href: 'https://github.com/minhchi1709/mail',
+          'Kurze Beschreibung:': 'einfache Mail-Plattform, auf der Benutzer E-Mails senden, lesen, beantworten und archivieren können.',
+          'Verwendete Technologien und Sprachen:': 'Python, Django und SQLite'
+        },
+        'Social Network': {
+          href: 'https://github.com/minhchi1709/network',
+          'Kurze Beschreibung:': 'einfaches soziales Netzwerk, Benutzer können anderen Benutzern folgen, Beiträge erstellen und kommentieren.',
+          'Verwendete Technologien und Sprachen:': 'Python, Django und SQLite'
+        },
+        'Learning Platform': {
+          href: 'https://github.com/minhchi1709/LearningPlatform',
+          'Kurze Beschreibung:': 'einfache Lernplattform, Benutzer können Kurse erstellen und anmelden. Der Benutzer muss sich bei der Registrierung und Änderung des Passworts authentifizieren, wenn er dies per E-Mail-Bestätigung vergisst.',
+          'Verwendete Technologien und Sprachen:': 'Java, Spring boot und PostgreSQL'
+        },
+      },
+      vn: {
+        'Tài Chính': {
+          href: 'https://github.com/minhchi1709/cs50-finance',
+          'Mô tả ngắn:': 'mô phỏng việc mua và bán cổ phiếu với sự giúp đỡ từ Yahoo, chúng ta lấy dữ liệu từ Yahoo và xử lý chúng.',
+          'Công nghệ và Ngôn ngữ sử dụng:': 'Python, Flask và SQLite'
+        },
+        'Thương Mại Điện Tử': {
+          href: 'https://github.com/minhchi1709/commerce',
+          'Mô tả ngắn:': 'sàn đấu giá và mua vật phẩm.',
+          'Công nghệ và Ngôn ngữ sử dụng:': 'Python, Django và SQLite'
+        },
+        'Mail': {
+          href: 'https://github.com/minhchi1709/mail',
+          'Mô tả ngắn:': 'platform mail đơn giản, người dùng có thể đọc, gửi, trả lời và lưu mail.',
+          'Công nghệ và Ngôn ngữ sử dụng:': 'Python, Django và SQLite'
+        },
+        'Mạng Xã Hội': {
+          href: 'https://github.com/minhchi1709/network',
+          'Mô tả ngắn:': 'mạng xã hội đơn giản, người dùng có thể theo dõi nhau, tạo và bình luận bài viết.',
+          'Công nghệ và Ngôn ngữ sử dụng:': 'Python, Django và SQLite'
+        },
+        'Learning Platform': {
+          href: 'https://github.com/minhchi1709/LearningPlatform',
+          'Mô tả ngắn:': 'nền tảng học đơn giản, người dùng có thể tạo và đăng ký khóa học. Người dùng phải xác thực khi đăng ký tài khoản và đổi mật khẩu khi quên mật khẩu cũ bằng cách xác thực qua email.',
+          'Công nghệ và Ngôn ngữ sử dụng:': 'Java, Spring boot và PostgreSQL'
+        },
+      },
+    }
+    const projectsAlert = {
+      en: 'Click the title of each project to see its github repository',
+      de: 'Klicken Sie auf den Titel des jeweiligen Projektes, um das Github-Repository anzuzeigen',
+      vn: 'Nhấn vào tiêu đề mỗi dự án để xem repo'
+    }
+    const loadProjects = (lang) => {
+      if (!langs.includes(lang)) {
+        alert(`Language ${lang} is not supported`);
+        return;
+      }
+      alert(projectsAlert[lang])
+      const project = document.getElementById('projects');
+      let temp = '';
+      let count = 0;
+      Object.keys(projects[lang]).forEach(p => {
+        temp += `
+        <h2>
+          <a href='${projects[lang][p].href}' target='_blank' class='project-link'>${p}</a>
+        </h2>
+        <ul>
+        `
+        Object.keys(projects[lang][p]).forEach(k => {
+          if (k !== 'href') {
+            temp += `
+            <li>
+              <strong>${k}</strong> ${projects[lang][p][k]}
+            </li>
+            `
+          }
+        })
+        temp += '</ul>'
+        if (count !== Object.keys(projects[lang]).length - 1) {
+          temp += '<hr>'
+        }
+        count++
+      })
+      project.innerHTML = temp
+    }
+    loadWelcome('en')
+
+// click function for dropdown button
 function onClick(type, icon) {
-  const ele = document.getElementById(type);
-  console.log(ele.classList);
-  if (ele.classList.contains('visible')) {
-      ele.classList.remove('visible');
-      icon.style.transform = 'rotate(0deg)';
-  } else {
-      ele.classList.add('visible');
-      icon.style.transform = 'rotate(180deg)';
-  }
+    const ele = document.getElementById(type);
+    console.log(ele.classList);
+    if (ele.classList.contains('visible')) {
+        ele.classList.remove('visible');
+        icon.style.transform = 'rotate(0deg)';
+    } else {
+        ele.classList.add('visible');
+        icon.style.transform = 'rotate(180deg)';
+    }
 }
 
 // type is the content to display, for example about-en
 function handleNavigation(type, navlink) {
-  console.log(type)
   document.querySelectorAll('.nav-link').forEach(navlink => {
           navlink.classList.remove('active');
       }
   );
-  if (type !== 'home-en' && type !== 'home-de' && type !== 'home-vn') {
+  if (type !== 'home') {
       navlink.classList.add('active');
   }
 
   document.querySelectorAll('.col').forEach(div => {
-      if (div.id !== type) {
-          div.style.display = 'none';
-      }
+          div.hidden = true;
   })
-  document.getElementById(type).style.display = 'block';
-  setTimeout(() => {
-      if (type === 'projects-en') {
-      alert('Click the title of each project to see its github repository');
-    } else if(type === 'projects-de') {
-      alert('Klicken Sie auf den Titel des jeweiligen Projektes, um das Github-Repository anzuzeigen');
-    } else if(type ==='projects-vn') {
-      alert('Nhấn vào tiêu đề mỗi dự án để xem repo');
+  document.getElementById(type).hidden = false;
+  // find current language
+  let lang = ''
+  document.querySelectorAll('.language').forEach(e => {
+    if(e.classList.value.includes('active')) {
+      lang = e.id
     }
-  }, 100)
+  })
+  switch (type) {
+    case 'home': {
+      loadWelcome(lang)
+      break
+    }
+    case 'about': {
+      loadAbout(lang)
+      break
+    }
+    case 'projects': {
+      loadProjects(lang)
+      break
+    }
+    default: alert('Invalid')
+  }
 }
 
-function handleLang(type) {
-  document.querySelectorAll('.navigation').forEach(nav => {
-      nav.style.display = 'none';
-  })
-  document.getElementById('navigation-' + type).style.display = 'block';
-
-
-  let target = '';
-  document.querySelectorAll('.home').forEach(home => {
-      if (home.style.display !== 'none') {
-          target = 'home';
+function handleLang(lang) {
+  loadNav(lang)
+  // load current page
+  document.querySelectorAll('.col').forEach(p => {
+    if (!p.hidden) {
+      switch(p.id) {
+        case 'home': {
+          loadWelcome(lang)
+          break
+        }
+        case 'about': {
+          loadAbout(lang)
+          break
+        }
+        case 'projects': {
+          loadProjects(lang)
+          break
+        }
+        default: alert('Invalid')
       }
-      home.style.display = 'none';
+    }
   })
-
-  if(target === ''){
-      document.querySelectorAll('.about').forEach(about => {
-          if (about.style.display !== 'none') {
-              target = 'about';
-          }
-          about.style.display = 'none';
-      })
-  }
-
-  if(target === ''){
-      document.querySelectorAll('.projects').forEach(projects => {
-          if (projects.style.display !== 'none') {
-              target = 'projects';
-          }
-          projects.style.display = 'none';
-      })
-  }
-  document.getElementById(target + '-' + type).style.display = 'block';
-  document.getElementById('nav-' + target + '-' + type).classList.add('active');
 }
    </script>
 </body>
