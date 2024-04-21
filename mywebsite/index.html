@@ -10,210 +10,193 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   
   <style>
-    html, body, .row, .navigation{
-    height: 100%
-}
+    html, body, .row, #navigation{
+      height: 100%
+    }
 
-.container-fluid {
-    width: auto;
-    max-width: 100%;
-}
-  
-html {
-    font-size: 1.2rem
-}
-
-.col {
-padding: 0
-}
-
-.col-2 {
-padding-right: 0
-} 
-
-/* navigation */
-
-.nav-container {
-    height: 100%;
-    box-shadow: 3px 0 10px lightgrey;
+    .container-fluid {
+        width: auto;
+        max-width: 100%;
+    }
     
-  }
-  
-.ava {
-    width: auto;
-    max-width: 20vh;
-    border-radius: 50%;
-    margin: 10%;
-  }
-
-.ava-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-  
-.nav-link {
-    color: black;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-  
-.nav-link:hover {
-    border-radius: 5px;
-    background-color: #EBEBEB;
-    color: black
-  }
-  
-.active {
-    color: #0092F1;
-    border-radius: 5px;
-    background-color: #EBEBEB
-}
-  
-.box {
-    display: flex;
-    align-items:center;
-    margin-bottom: 1vh
-}
-  
-.contact-icon {
-    vertical-align: middle;
-    height: 1rem;
-    max-width: 1rem;
-    margin-left: 5px;
-}
-  
-.contact {
-    font-size: 0.75rem;
-    text-decoration: none;
-    margin-left: 5px;
-}
-  
-.contact-container {
-    margin: 0
-}
-
-.language-container {
-    display: table;
-    border-spacing: 1vh;
-}
-
-.language {
-    display: table-cell;
-    text-align: center;
-    text-decoration: none;
-    font-size: 0.7rem;
-    color: black;
-    padding: 1vh;
-}
-
-
-
-/* home */
-
-#welcome {
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.4);
-    color: white;
-    font-weight: bold;
-    height: 100%;
-    text-align: center
-}
-
-#welcome h1 {
-    position: relative;
-    top: 50%;
-}
-
-
-.home {
-    background-image: url('https://minhchi1709.github.io/mywebsite/img/background.jpg');
-    background-size: cover;
-    height: 100%;
-}
-
-/* about */
-.about {
-    margin-left: 3vh;
-    height: auto;
-    max-height: 100vh;
-    overflow: scroll;
-}
-
-.title {
-    color: #0092F1;
-  }
-  
-.icon {
-    height: 1.5rem;
-    margin-left: 1rem
-}
-
-.icon:hover {
-    background-color: #EBEBEB;
-    border-radius: 50%;
-}
-
-.content {
-    display: none;
-    visibility: hidden;
-    animation: slideInOut 1s ease-in-out;
-}
-
-.content.visible {
-    visibility: visible;
-    display: block;
-}
-
-@keyframes slideInOut {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-200px);
+    html {
+        font-size: 1.2rem
     }
 
-    50% {
-        opacity: 0.5;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
-    100% {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-}
-
-  
-/* projects */
-.projects {
-   
-    margin-left: 3vh;
-    height: auto;
-    max-height: 100vh;
-    overflow: scroll;
-}
-
-.project-link {
-    text-decoration: none;
-}
-  
-.container-fluid {
+    .col {
     padding: 0
-}
+    }
+
+    .col-2 {
+    padding-right: 0
+    } 
+
+    /* navigation */
+
+    .nav-container {
+        height: 100%;
+        box-shadow: 3px 0 10px lightgrey;
+        
+      }
+      
+    .ava {
+        width: auto;
+        max-width: 20vh;
+        border-radius: 50%;
+        margin: 10%;
+      }
+
+    .ava-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+      
+    .nav-link {
+        color: black;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+      
+    .nav-link:hover {
+        border-radius: 5px;
+        background-color: #EBEBEB;
+        color: black
+      }
+      
+    .active {
+        color: #0092F1;
+        border-radius: 5px;
+        background-color: #EBEBEB
+    }
+      
+    .box {
+        display: flex;
+        align-items:center;
+        margin-bottom: 1vh
+    }
+      
+    .contact-icon {
+        vertical-align: middle;
+        height: 1rem;
+        max-width: 1rem;
+        margin-left: 5px;
+    }
+      
+    .contact {
+        font-size: 0.75rem;
+        text-decoration: none;
+        margin-left: 5px;
+    }
+      
+    .contact-container {
+        margin: 0
+    }
+
+    .language-container {
+        display: table;
+        border-spacing: 1vh;
+    }
+
+    .language {
+        display: table-cell;
+        text-align: center;
+        text-decoration: none;
+        font-size: 0.7rem;
+        color: black;
+        padding: 1vh;
+    }
 
 
-a {
-    cursor: pointer
-}
 
+    /* home */
+
+    #welcome {
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0, 0.4);
+        color: white;
+        font-weight: bold;
+        height: 100%;
+        text-align: center
+    }
+
+    #welcome h1 {
+        position: relative;
+        top: 50%;
+    }
+
+
+    #home {
+        background-size: cover;
+        height: auto;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+
+    /* about */
+    .title {
+        color: #0092F1;
+      }
+      
+    .icon {
+        height: 0.7rem;
+    }
+
+    .icon:hover {
+        background-color: #EBEBEB;
+        border-radius: 50%;
+    }
+
+    .content {
+        display: none;
+        visibility: hidden;
+        animation: slideInOut 1s ease-in-out;
+    }
+
+    .content.visible {
+        visibility: visible;
+        display: block;
+    }
+
+    @keyframes slideInOut {
+        0% {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-200px);
+        }
+
+        50% {
+            opacity: 0.5;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        100% {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    }
+
+      
+    /* projects */
+    .project-link {
+        text-decoration: none;
+    }
+      
+    .container-fluid {
+        padding: 0
+    }
+
+    a {
+        cursor: pointer
+    }
   </style>
 </head>
 <body class="container-fluid">
    <div class="row">
-    <div id="navigation" class="col-2 navigation">
+    <div id="navigation" class="col-2">
         <ul class="nav flex-column nav-container">
             <li class="nav-item">
               <a class="nav-link ava-container">
@@ -251,20 +234,11 @@ a {
     </div>
 
     <div id="home" class="col home">
-        <div id="welcome">
-        </div>
     </div>
-
-    <div id="about" class="col about" hidden>
-    </div>
-
-    <div id="projects" class="col projects" hidden>
-    </div>
-
    </div>
    <script>
     const langs = ['en', 'de', 'vn'];
-    const pages = ['welcome', 'about', 'projects']
+    let currentpage = 'home'
     // load navigation
     const about = {
       en: 'About me',
@@ -301,9 +275,13 @@ a {
         alert(`Language ${lang} is not supported`);
         return;
       }
-      const homeWelcome = document.getElementById('welcome');
+      const homeWelcome = document.getElementById('home');
+      homeWelcome.style.backgroundImage = "url('https://minhchi1709.github.io/mywebsite/img/background.jpg')"
+      homeWelcome.style.marginLeft = '0'
       homeWelcome.innerHTML = `
+      <div id='welcome'>
       <h1>${welcome[lang]}</h1>
+      </div>
       `;
     }
     // load about
@@ -491,7 +469,10 @@ a {
         alert(`Language ${lang} is not supported`);
         return;
       }
-      const about = document.getElementById('about');
+      currentpage = 'about'
+      const about = document.getElementById('home');
+      about.style.backgroundImage = '';
+      about.style.marginLeft = '3vh'
       // personal information
       let temp = `
       <h2 class='title'>${personal[lang]}</h2>
@@ -507,13 +488,19 @@ a {
       </ul>
       <hr>
       <h2 class='title'>${skills[lang]}</h2>
-      <ul>
-        <li><strong>${backend[lang]}</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('backend', this)">
-        <ul id='backend' class='content'>
+      <div>
+      <img 
+      src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" 
+      class="icon" 
+      alt="dropdown" 
+      onclick="onClick('backend', this)"
+      >
+      <strong>${backend[lang]}</strong>
+      <ul id='backend' class='content'>
       `
       Object.keys(backendContent).forEach(c => {
         temp += `
-        <li>${c}
+        <li style='margin-left: 2rem'>${c}
           <ul>
         `
         backendContent[c].forEach(f => {
@@ -526,38 +513,59 @@ a {
         `
       })
       temp += `
-        </ul>
-        </li>`
+        </ul></div>
+        `
 
       // frontend
-        temp += `
-        <li><strong>${frontend[lang]}</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('frontend', this)">
-        <ul id='frontend' class='content'>
+      temp += `
+      <div>
+      <img 
+      src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" 
+      class="icon" 
+      alt="dropdown" 
+      onclick="onClick('frontend', this)"
+      >
+      <strong>${frontend[lang]}</strong>
+      <ul id='frontend' class='content' style='margin-left: 2rem'>
       `
       frontendContent.forEach(c => {
         temp += `<li>${c}</li>`
       })
-      temp += '</ul></li>'
+      temp += '</ul></div>'
 
       // soft skills
       temp += `
-        <li><strong>${softSkills[lang]}</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('softskills', this)">
-        <ul id='softskills' class='content'>
+      <div>
+      <img 
+      src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" 
+      class="icon" 
+      alt="dropdown" 
+      onclick="onClick('softskills', this)"
+      >
+      <strong>${softSkills[lang]}</strong>
+      <ul id='softskills' class='content' style='margin-left: 2rem'>
       `
       softSkillsContent[lang].forEach(c => {
         temp += `<li>${c}</li>`
       })
-      temp += '</ul></li>'
+      temp += '</ul></div>'
 
       // others
       temp += `
-        <li><strong>${others[lang]}</strong><img src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" class="icon" alt="dropdown" onclick="onClick('others', this)">
-        <ul id='others' class='content'>
+      <div>
+        <img 
+        src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" 
+        class="icon" 
+        alt="dropdown" 
+        onclick="onClick('others', this)"
+        >
+        <strong>${others[lang]}</strong>
+        <ul id='others' class='content' style='margin-left: 2rem'>
       `
       othersContent[lang].forEach(c => {
         temp += `<li>${c}</li>`
       })
-      temp += '</ul></li></ul><hr>'
+      temp += '</ul></ul><hr>'
 
       // education
       temp += `
@@ -575,27 +583,31 @@ a {
       // achievements
       temp += `
       <h2 class='title'>${achievements[lang]}</h2>
-      <ul>
       `
       Object.keys(achievementsContent[lang]).forEach(s => {
         temp += `
-        <li><strong>${s}:</strong> ${achievementsContent[lang][s]['time']}
+        <div>
           <img 
           src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" 
           class="icon" 
           alt="dropdown" 
           onclick="onClick('${achievementsContent[lang][s]['id']}', this)"
           >
+          <strong>${s}:</strong> ${achievementsContent[lang][s]['time']}
           <img class='content' 
           id='${achievementsContent[lang][s]['id']}' 
           src='${achievementsContent[lang][s]['src']}' 
           alt='${achievementsContent[lang][s]['id']}'
-          style='width: 50%'
+          style='width: 60%;
+              margin-top: 5px;
+              margin-bottom: 10px;
+              border-radius: 20px;
+              box-shadow : 0 6px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
           >
-        </li>
+        </div>
         `
       })
-      temp += '</ul><hr>'
+      temp += '<hr>'
 
       // interests
       temp += `
@@ -616,21 +628,26 @@ a {
           `
           travelling.forEach(t => {
             temp += `
-            <li>${t.location}
+            <div>
             <img 
             src="https://minhchi1709.github.io/mywebsite/img/dropdown.png" 
             class="icon" 
             alt="dropdown" 
             onclick="onClick('${t.id}', this)"
             >
+            ${t.location}
             <img
             id=${t.id}
             src='${t.src}'
             class='content'
             alt='${t.id}'
-            style='width: 60%'
+            style='width: 60%;
+              margin-top: 5px;
+              margin-bottom: 10px;
+              border-radius: 20px;
+              box-shadow : 0 6px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
             >
-            </li>
+            </div>
             `
           })
           temp += '</ul></li>'
@@ -733,8 +750,13 @@ a {
         alert(`Language ${lang} is not supported`);
         return;
       }
-      alert(projectsAlert[lang])
-      const project = document.getElementById('projects');
+      currentpage = 'projects'
+      setTimeout(() => {
+        alert(projectsAlert[lang])
+      }, 200)
+      const project = document.getElementById('home');
+      project.style.backgroundImage = ''
+      project.style.marginLeft = '3vh'
       let temp = '';
       let count = 0;
       Object.keys(projects[lang]).forEach(p => {
@@ -763,63 +785,39 @@ a {
     }
     loadWelcome('en')
 
-// click function for dropdown button
-function onClick(type, icon) {
-    const ele = document.getElementById(type);
-    console.log(ele.classList);
-    if (ele.classList.contains('visible')) {
-        ele.classList.remove('visible');
-        icon.style.transform = 'rotate(0deg)';
-    } else {
-        ele.classList.add('visible');
-        icon.style.transform = 'rotate(180deg)';
+    // click function for dropdown button
+    function onClick(type, icon) {
+        const ele = document.getElementById(type);
+        console.log(ele.classList);
+        if (ele.classList.contains('visible')) {
+            ele.classList.remove('visible');
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            ele.classList.add('visible');
+            icon.style.transform = 'rotate(180deg)';
+        }
     }
-}
 
-// type is the content to display, for example about-en
-function handleNavigation(type, navlink) {
-  document.querySelectorAll('.nav-link').forEach(navlink => {
-          navlink.classList.remove('active');
+    // type is the content to display, for example about-en
+    function handleNavigation(type, navlink) {
+      // remove active from all routes
+      document.querySelectorAll('.nav-link').forEach(navlink => {
+              navlink.classList.remove('active');
+          }
+      );
+      // if the desired route is not home, add active
+      if (type !== 'home') {
+          navlink.classList.add('active');
       }
-  );
-  if (type !== 'home') {
-      navlink.classList.add('active');
-  }
 
-  document.querySelectorAll('.col').forEach(div => {
-          div.hidden = true;
-  })
-  document.getElementById(type).hidden = false;
-  // find current language
-  let lang = ''
-  document.querySelectorAll('.language').forEach(e => {
-    if(e.classList.value.includes('active')) {
-      lang = e.id
-    }
-  })
-  switch (type) {
-    case 'home': {
-      loadWelcome(lang)
-      break
-    }
-    case 'about': {
-      loadAbout(lang)
-      break
-    }
-    case 'projects': {
-      loadProjects(lang)
-      break
-    }
-    default: alert('Invalid')
-  }
-}
-
-function handleLang(lang) {
-  loadNav(lang)
-  // load current page
-  document.querySelectorAll('.col').forEach(p => {
-    if (!p.hidden) {
-      switch(p.id) {
+      // find current language
+      let lang = ''
+      document.querySelectorAll('.language').forEach(e => {
+        if(e.classList.value.includes('active')) {
+          lang = e.id
+        }
+      })
+      switch (type) {
         case 'home': {
           loadWelcome(lang)
           break
@@ -835,8 +833,26 @@ function handleLang(lang) {
         default: alert('Invalid')
       }
     }
-  })
-}
+
+    function handleLang(lang) {
+    loadNav(lang)
+    // load current page
+    switch(currentpage) {
+        case 'home': {
+          loadWelcome(lang)
+          break
+        }
+        case 'about': {
+          loadAbout(lang)
+          break
+        }
+        case 'projects': {
+          loadProjects(lang)
+          break
+        }
+        default: alert('Invalid')
+      }
+    }
    </script>
 </body>
 </html>
