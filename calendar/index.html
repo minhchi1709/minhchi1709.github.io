@@ -249,11 +249,42 @@
                 schedules: [
                     {
                         type: 'Lecture',
-                        time: 'mon-4',
+                        time: 'fri-2',
                         zoom: 'https://rwth.zoom-x.de/j/68875950011?pwd=RHBBbnByZG5YbFNqSktvdXlOY1lxUT09'
                     }
                 ]
-            }
+            },
+            {
+                name: 'Introduction to Scientific Work',
+                schedules: [
+                    {
+                        type: 'One-time Introduction',
+                        time: 'wed-5',
+                        location: 'AH V (2356|050)'
+                    }
+                ]
+            },
+            {
+                name: 'A Race between Model-based and Handwritten Development of Web-Applications',
+                href: 'https://moodle.rwth-aachen.de/course/view.php?id=41895',
+                schedules: [
+                    {
+                        type: 'First meeting',
+                        time: 'mon-4',
+                        zoom: 'https://rwth.zoom-x.de/j/68538856224?pwd=c1o5Mkp4c1lWc3ZEMGxES3VwbXNCQT09'
+                    }
+                ]
+            },
+            {
+                name: 'Mandatory Library Course 15:00',
+                schedules: [
+                    {
+                        type: 'One-time Introduction',
+                        time: 'wed-4',
+                        location: 'Library'
+                    }
+                ]
+            },
         ]
         subjects.forEach(subject => {
             subject.schedules.forEach(schedule => {
@@ -291,19 +322,6 @@
         }
         document.getElementById('close-notes').addEventListener('click', closeNote);
         const notes = [
-            {
-                title: 'A Race between Model-based and Handwritten Development of Web-Applications',
-                detail: `
-                The first meeting will take place online in Zoom on Monday 22.04, 16:00. Expected duration: 45 minutes.
-                <a href="https://rwth.zoom-x.de/j/68538856224?pwd=c1o5Mkp4c1lWc3ZEMGxES3VwbXNCQT09" target="_blank">Open Zoom</a> 
-                `
-            },
-            {
-                title: "Introduction to Scientific Work",
-                detail: `
-                Mi, 24.04.2024 16:30-18:00. Room: AH V (2356|050)
-                `
-            },
             {
                 title: 'Computer Vision',
                 detail: 'The lecture will predominantly be held in an in-presence format. All lecture recordings will be made available on moodle. Exercises will be held in-presence. No admission requirement to qualify for the exam this year'
@@ -443,12 +461,10 @@
                 // if there is a block that corresponds to a time period
                 if (min + 120 * i <= distanceWarning && distanceWarning < upcommingMax + 120 * i) {
                     // and we haven't highlighted it yet
-                    if (currentHighlightedWarning !== i) {
                         target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
                         target.style.borderRadius = '10px';
                         target.style.backgroundColor = 'rgb(255, 193, 7)';
                         currentHighlighted = i
-                    } 
                 } // so now there is no block
                 else if (currentHighlighted !== i){
                     target.style.boxShadow = '';
