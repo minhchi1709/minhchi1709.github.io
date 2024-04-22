@@ -386,6 +386,7 @@
             </div>
             `
         })
+        let currentHighlighted = -1
         const figureNow = () => {
             const now = new Date().toLocaleString('en', {timeZone : 'Europe/Paris'}).split(',')[1].split(':'); // now = ['hours', 'minutes', 'seconds AM/PM']
             const hour = Number(now[0]);
@@ -431,8 +432,9 @@
                 if (min + 120 * i <= distance && distance < max + 120 * i) {
                     target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
                     target.style.borderRadius = '10px';
+                    currentHighlighted = i
                 } // so now there is not the block
-                else {
+                else if (currentHighlighted !== i) {
                     target.style.boxShadow = '';
                     target.style.borderRadius = '0';       
                 }
@@ -445,9 +447,10 @@
                         target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
                         target.style.borderRadius = '10px';
                         target.style.backgroundColor = 'rgb(255, 193, 7)';
+                        currentHighlighted = i
                     } 
                 } // so now there is no block
-                else{
+                else if (currentHighlighted !== i){
                     target.style.boxShadow = '';
                     target.style.borderRadius = '0';
                     target.style.backgroundColor = 'white';
