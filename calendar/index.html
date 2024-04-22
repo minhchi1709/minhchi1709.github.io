@@ -269,9 +269,9 @@
                 href: 'https://moodle.rwth-aachen.de/course/view.php?id=41895',
                 schedules: [
                     {
-                        type: 'First meeting',
-                        time: 'mon-4',
-                        zoom: 'https://rwth.zoom-x.de/j/68538856224?pwd=c1o5Mkp4c1lWc3ZEMGxES3VwbXNCQT09'
+                        type: 'Weekly meeting',
+                        time: 'tue-3',
+                        zoom: 'https://rwth.zoom-x.de/j/68233436864?pwd=SmtGOFNGM0lDdzdZWENGL0ovTFRUQT09'
                     }
                 ]
             },
@@ -336,6 +336,7 @@
             {
                 title: 'Databases and Information Systems Helper',
                 detail: `
+                <strong>EM:<strong><br>
                 from erdiagram import ER<br>
                 g = ER()<br>
                 # ...<br>
@@ -369,6 +370,14 @@
                 &emsp; is_disjunct, <br>
                 &emsp; custom_text = None<br>
                 )<br>
+                <hr>
+                <strong>RM:<strong><br>
+                Relation(name, primaryKeyList, allOtherAttributesList)<br>
+                ProjectedRelation(relationName, projectedAttributeList) -- use for foreign keys and is-a-relationship<br>
+                Subset(projectedRelationLeft, projectedRelationRight)<br>
+                Intersection(projectedRelationLeft, projectedRelationRight, equals=None) -- equals expresses whether the intersection empty is <br>
+                rm.addRelation(relation)<br>
+                rm.addDependency(subset or intersection)
                 `
             },
         ]
