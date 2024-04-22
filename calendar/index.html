@@ -386,8 +386,6 @@
             </div>
             `
         })
-        let currentHighlighted = -1;
-        let currentHighlightedWarning = -1;
         const figureNow = () => {
             const now = new Date().toLocaleString('en', {timeZone : 'Europe/Paris'}).split(',')[1].split(':'); // now = ['hours', 'minutes', 'seconds AM/PM']
             const hour = Number(now[0]);
@@ -422,34 +420,21 @@
             }
             const distance = seconds.includes('PM') && hour < 12 ? (hour + 4) * 60 + (minutes - 30) : (hour - 8) * 60 + (minutes - 30); // distance from now to 8h30
             const distanceWarning = seconds.includes('PM') && hour < 12 ? (hour + 4) * 60 + minutes : (hour - 8) * 60 + minutes// distance from now to 8h00
-            console.log(distance, currentHighlighted, currentHighlightedWarning)
+
             
             const min = 0;
             const max = 90;
             const upcommingMax = 30;
-            console.log(min + 120 * currentHighlighted <= distance && distance < max + 120 * currentHighlighted)
-            console.log(min + 120 * currentHighlightedWarning <= distanceWarning && distanceWarning < upcommingMax + 120 * currentHighlightedWarning)
             for (let i = 0 ; i < 5 ; i ++) {
+                const target = document.getElementById(`${day}-${i + 1}`);
                 // if there is a block that corresponds to a time period
                 if (min + 120 * i <= distance && distance < max + 120 * i) {
-                    // and we haven't highlighted it yet
-                    if (currentHighlighted !== i) {
-                        const target = document.getElementById(`${day}-${i + 1}`);
-                        target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
-                        target.style.borderRadius = '10px';
-                        currentHighlighted = i;
-                    } 
-                    break;
-                } // so now there is no block
-                else if (i == 4) {
-                    // and we have already highlighted one block previously
-                    if (currentHighlighted > -1) {
-                        const target = document.getElementById(`${day}-${currentHighlighted + 1}`);
-                        target.style.boxShadow = '';
-                        target.style.borderRadius = '0';
-                        //set currentHighlighted back to -1 so that we know we haven't highlighted any
-                        currentHighlighted = -1;
-                    }
+                    target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
+                    target.style.borderRadius = '10px';
+                } // so now there is not the block
+                else {
+                    target.style.boxShadow = '';
+                    target.style.borderRadius = '0';       
                 }
 
                 // warning there is a upcomming block
@@ -457,24 +442,15 @@
                 if (min + 120 * i <= distanceWarning && distanceWarning < upcommingMax + 120 * i) {
                     // and we haven't highlighted it yet
                     if (currentHighlightedWarning !== i) {
-                        const target = document.getElementById(`${day}-${i + 1}`);
                         target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
                         target.style.borderRadius = '10px';
                         target.style.backgroundColor = 'rgb(255, 193, 7)';
-                        currentHighlightedWarning = i;
                     } 
-                    break;
                 } // so now there is no block
-                else if (i == 4) {
-                    // and we have already highlighted one block previously
-                    if (currentHighlightedWarning > -1) {
-                        const target = document.getElementById(`${day}-${currentHighlightedWarning + 1}`);
-                        target.style.boxShadow = '';
-                        target.style.borderRadius = '0';
-                        target.style.backgroundColor = 'white';
-                        //set currentHighlighted back to -1 so that we know we haven't highlighted any
-                        currentHighlightedWarning = -1;
-                    }
+                else{
+                    target.style.boxShadow = '';
+                    target.style.borderRadius = '0';
+                    target.style.backgroundColor = 'white';
                 }
             }   
         }
