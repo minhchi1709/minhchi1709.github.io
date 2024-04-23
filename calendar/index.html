@@ -89,6 +89,16 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
         }
+
+        .active {
+            box-shadow:  4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 10px;
+        }
+        .warning {
+            background-color: rgb(255, 193, 7);
+            box-shadow:  4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -123,7 +133,7 @@
             <tr>
                 <td class="time" id="time-2">10:30 - 12:00</td>
                 <td class="content" id="mon-2"></td>
-                <td class="content" id="tue-2"></td>
+                <td class="content active" id="tue-2"></td>
                 <td class="content" id="wed-2"></td>
                 <td class="content" id="thu-2"></td>
                 <td class="content" id="fri-2"></td>
@@ -291,7 +301,7 @@
                 const location = schedule.zoom && schedule.location ? `
                 <ul>
                     <li>${schedule.location}</li>
-                    <li><a href='${schedule.zoom}'>Open Zoom</a></li>
+                    <li><a href='${schedule.zoom}' target='_blank'>Open Zoom</a></li>
                 </ul>
                     ` : (schedule.location ? schedule.location : `<a href='${schedule.zoom}' target="_blank">Open Zoom</a>`);
                 document.getElementById(schedule.time).innerHTML += `
@@ -325,7 +335,7 @@
             {
                 title:  'A Race between Model-based and Handwritten Development of Web-Applications',
                 detail: `
-                <a href='https://git.rwth-aachen.de/se-student/ss24/labs/web-dev/supervisor/-/tree/main' target='_blank'>Gitlab</a><br>
+                <a href='https://git.rwth-aachen.de/se-student/ss24/labs/web-dev/supervisor/-/tree/main' target='_blank'>Document</a><br>
                 <a href='https://join.slack.com/t/slack-k8v7958/shared_invite/zt-2h2x9lblj-isuWozYm_L6mqFlFjZbuKw' target='_blank'>Slack</a>
                 `
             },
@@ -401,8 +411,18 @@
         const exams = [
             {
                 name: 'Embedded Systems',
-                time: 'Do., 15.08.2024 08:30 Uhr - 10:30 Uhr',
+                time: '01.08.2024',
                 location: 'Zuse-Lab'
+            },
+            {
+                name: 'Functional Programming',
+                time: '08.08.2024',
+                location: ''
+            },
+            {
+                name: 'Databases and Information Systems',
+                time: 'Do., 15.08.2024 08:30 Uhr - 10:30 Uhr',
+                location: ''
             },
             {
                 name: 'Computer Vision',
@@ -464,29 +484,18 @@
                 const target = document.getElementById(`${day}-${i + 1}`);
                 // if there is a block that corresponds to a time period
                 if (min + 120 * i <= distance && distance < max + 120 * i) {
-                    target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
-                    target.style.borderRadius = '10px';
-                    currentHighlighted = i
+                    if (currentHighlighted !== i) {
+                        target.classList.add('active');
+                        currentHighlighted = i
+                    }
                 } // so now there is not the block
                 else if (currentHighlighted !== i) {
-                    target.style.boxShadow = '';
-                    target.style.borderRadius = '0';       
+                    target.classList.remove('active')      
                 }
 
                 // warning there is a upcomming block
                 // if there is a block that corresponds to a time period
-                if (min + 120 * i <= distanceWarning && distanceWarning < upcommingMax + 120 * i) {
-                    // and we haven't highlighted it yet
-                        target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
-                        target.style.borderRadius = '10px';
-                        target.style.backgroundColor = 'rgb(255, 193, 7)';
-                        currentHighlighted = i
-                } // so now there is no block
-                else if (currentHighlighted !== i){
-                    target.style.boxShadow = '';
-                    target.style.borderRadius = '0';
-                    target.style.backgroundColor = 'white';
-                }
+                
             }   
         }
         figureNow();
