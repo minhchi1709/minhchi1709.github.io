@@ -133,7 +133,7 @@
             <tr>
                 <td class="time" id="time-2">10:30 - 12:00</td>
                 <td class="content" id="mon-2"></td>
-                <td class="content active" id="tue-2"></td>
+                <td class="content" id="tue-2"></td>
                 <td class="content" id="wed-2"></td>
                 <td class="content" id="thu-2"></td>
                 <td class="content" id="fri-2"></td>
@@ -286,7 +286,7 @@
                 ]
             },
             {
-                name: 'Mandatory Library Course 15:00',
+                name: 'Mandatory Library Course Wed, 15.05.2024 15:00',
                 schedules: [
                     {
                         type: 'One-time Introduction',
@@ -475,27 +475,39 @@
             }
             const distance = seconds.includes('PM') && hour < 12 ? (hour + 4) * 60 + (minutes - 30) : (hour - 8) * 60 + (minutes - 30); // distance from now to 8h30
             const distanceWarning = seconds.includes('PM') && hour < 12 ? (hour + 4) * 60 + minutes : (hour - 8) * 60 + minutes// distance from now to 8h00
-
-            
-            const min = 0;
+      
+            const frequency = 120;
             const max = 90;
             const upcommingMax = 30;
             for (let i = 0 ; i < 5 ; i ++) {
                 const target = document.getElementById(`${day}-${i + 1}`);
-                // if there is a block that corresponds to a time period
-                if (min + 120 * i <= distance && distance < max + 120 * i) {
-                    if (currentHighlighted !== i) {
-                        target.classList.add('active');
+                // if upcomming
+                if (frequency * i <= distanceWarning && distanceWarning < upcommingMax + frequency * i) {
+                    if (currentHighlighted < 0){
+                        target.style.backgroundColor = 'rgb(255, 193, 7)'
+                        target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
+                        target.style.borderRadius = '10px'
                         currentHighlighted = i
+                    } else {
+                        const previous = document.getElementById(`${day}-${i}`)
+                        previous.style.boxShadow = 'none'
+                        previous.style.backgroundColor = 'inherit'
                     }
-                } // so now there is not the block
-                else if (currentHighlighted !== i) {
-                    target.classList.remove('active')      
+                    break
                 }
-
-                // warning there is a upcomming block
-                // if there is a block that corresponds to a time period
-                
+                else if (frequency * i <= distance && distance < max + frequency * i) { // current occur
+                    if (currentHighlighted < 0) {
+                        target.style.backgroundColor = 'white'
+                        target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
+                        target.style.borderRadius = '10px'
+                        currentHighlighted = i
+                    } 
+                    break
+                } // so now there is not the block
+                else if (i === 4) {
+                    target.style.backgroundColor = 'white'
+                    target.style.boxShadow = 'none'
+                }
             }   
         }
         figureNow();
