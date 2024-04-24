@@ -192,6 +192,16 @@
     a {
         cursor: pointer
     }
+    .img {
+        width: 60%;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        box-shadow : 0 6px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+    }
+    .first {
+      margin-left: 3vh
+    }
   </style>
 </head>
 <body class="container-fluid">
@@ -209,6 +219,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" id="nav-projects" onclick="handleNavigation('projects', this)">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="nav-gpa" onclick="handleNavigation('gpa', this)">GPA</a>
             </li>
             <div class="language-container">
                 <a class="language active" id="en" onclick="handleLang('en', this)">EN</a>            
@@ -233,11 +246,12 @@
           </ul>    
     </div>
 
-    <div id="home" class="col home">
+    <div id="home" class="col">
     </div>
    </div>
    <script>
     const langs = ['en', 'de', 'vn'];
+    
     let currentpage = 'home'
     // load navigation
     const about = {
@@ -257,8 +271,10 @@
       }
       const navAbout = document.getElementById('nav-about');
       const navProject = document.getElementById('nav-projects');
+      const navGPA = document.getElementById('nav-gpa');
       navAbout.innerHTML = about[lang];
       navProject.innerHTML = project[lang];
+      navGPA.innerHTML = gpa[lang];
       document.querySelectorAll('.language').forEach(e => {
         e.classList.remove('active');
       })
@@ -594,15 +610,10 @@
           onclick="onClick('${achievementsContent[lang][s]['id']}', this)"
           >
           <strong>${s}:</strong> ${achievementsContent[lang][s]['time']}
-          <img class='content' 
+          <img class='content img' 
           id='${achievementsContent[lang][s]['id']}' 
           src='${achievementsContent[lang][s]['src']}' 
           alt='${achievementsContent[lang][s]['id']}'
-          style='width: 60%;
-              margin-top: 5px;
-              margin-bottom: 10px;
-              border-radius: 20px;
-              box-shadow : 0 6px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
           >
         </div>
         `
@@ -639,13 +650,8 @@
             <img
             id=${t.id}
             src='${t.src}'
-            class='content'
+            class='content img'
             alt='${t.id}'
-            style='width: 60%;
-              margin-top: 5px;
-              margin-bottom: 10px;
-              border-radius: 20px;
-              box-shadow : 0 6px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
             >
             </div>
             `
@@ -783,12 +789,499 @@
       })
       project.innerHTML = temp
     }
-    loadWelcome('en')
+    const gpa ={
+      en: 'GPA',
+      de: 'Notenspiegel',
+      vn: 'Bảng điểm'
+    }
+    const subject = {
+      en: 'Subject',
+      de: 'Fach',
+      vn: 'Môn'
+    }
+    const semester = {
+      en: 'Semester',
+      de: 'Semester',
+      vn: 'Kì'
+    }
+    const field = {
+      en: 'Field',
+      de: 'Bereich',
+      vn: 'Lĩnh vực'
+    }
+    const grade = {
+      en: 'Grade',
+      de: 'Note',
+      vn: 'Điểm'
+    }
+    const score = {
+      prog: {
+        sem: '22W',
+        grade: 1.7
+      },
+      dsal: {
+        sem: '23S',
+        grade: 2.3
+      },
+      swt: {
+        sem: '23W',
+        grade: 2.0
+      },
+      dbis: {
+        sem: '24S',
+        grade: ''
+      },
+      mlds: {
+        sem: '23W',
+        grade: 2.7
+      },
+      tein: {
+        sem: '22W',
+        grade: 1.0
+      },
+      bus: {
+        sem: '23S',
+        grade: 4.0
+      },
+      datkom: {
+        sem: '23W',
+        grade: 2.7
+      },
+      itsec: {
+        sem: '23W',
+        grade: 3.3
+      },
+      fosap: {
+        sem: '23S',
+        grade: 2.0
+      },
+      buk: {
+        sem: '23W',
+        grade: 1.0
+      },
+      malo: {
+        sem: '23S',
+        grade: 3.3
+      },
+      ds: {
+        sem: '22W',
+        grade: 1.0
+      },
+      anal: {
+        sem: '22W',
+        grade: 2.3
+      },
+      lial: {
+        sem: '23S',
+        grade: 2.0
+      },
+      sto: {
+        sem: '23S',
+        grade: 1.0
+      },
+      comvi: {
+        sem: '24S',
+        grade: ''
+      },
+      ai: {
+        sem: '23W',
+        grade: '2.0'
+      },
+      funcprog: {
+        sem: '24S',
+        grade: ''
+      }
+    }
+    const pracCS = {
+      en: [
+        {
+          title: 'Introduction to Programming',
+          object: score.prog
+        },
+        {
+          title: 'Data Structures and Algorithms',
+          object: score.dsal
+        },
+        {
+          title: 'Software Engineering',
+          object: score.swt
+        },
+        {
+          title: 'Databases and Information Systems',
+          object: score.dbis
+        },
+        {
+          title: 'Elements of Machine Learning and Data Science',
+          object: score.mlds
+        }
+      ],
+      de: [
+        {
+          title: 'Programmierung',
+          object: score.prog
+        },
+        {
+          title: 'Datenstrukturen und Algorithmen',
+          object: score.dsal
+        },
+        {
+          title: 'Softwaretechnik',
+          object: score.swt
+        },
+        {
+          title: 'Datenbanken und Informationensysteme',
+          object: score.dbis
+        },
+        {
+          title: 'Elements of Machine Learning and Data Science',
+          object: score.mlds
+        }
+      ],
+      vn: [
+        {
+          title: 'Nhập môn Lập trình',
+          object: score.prog
+        },
+        {
+          title: 'Cấu trúc Dữ liệu và Giải thuật',
+          object: score.dsal
+        },
+        {
+          title: 'Kĩ thuật Phần mềm',
+          object: score.swt
+        },
+        {
+          title: 'Cơ sở Dữ liệu và Hệ thống Thông tin',
+          object: score.dbis
+        },
+        {
+          title: 'Học máy và Khoa học Dữ liệu',
+          object: score.mlds
+        }
+      ]
+    }
+    const techCS = {
+      en: [
+        {
+          title: 'Introduction to Computer Engineering',
+          object: score.tein
+        },
+        {
+          title: 'Operating Systems and System Software',
+          object: score.bus
+        },
+        {
+          title: 'Data Communication',
+          object: score.datkom
+        },
+        {
+          title: 'IT-Security',
+          object: score.itsec
+        }
+      ],
+      de: [
+        {
+          title: 'Einführung in die Technische Informatik',
+          object: score.tein
+        },
+        {
+          title: 'Betriebssysteme und Systemsoftware',
+          object: score.bus
+        },
+        {
+          title: 'Datenkommunikation',
+          object: score.datkom
+        },
+        {
+          title: 'IT-Sicherheit',
+          object: score.itsec
+        }
+      ],
+      vn: [
+        {
+          title: 'Nhập môn Kĩ thuật Máy tính',
+          object: score.tein
+        },
+        {
+          title: 'Hệ điều hành và Phần mềm Hệ Thống',
+          object: score.bus
+        },
+        {
+          title: 'Trao đổi Thông tin',
+          object: score.datkom
+        },
+        {
+          title: 'Bảo mật Thông Tin',
+          object: score.itsec
+        }
+      ],
+    }
+    const theoCS = {
+      en: [
+        {
+          title: 'Formal Systems, Automata, Processes',
+          object: score.fosap
+        },
+        {
+          title: 'Computability and Complexity',
+          object: score.buk
+        },
+        {
+          title: 'Mathematical Logic I',
+          object: score.malo
+        }
+      ],
+      de: [
+        {
+          title: 'Formale Systeme, Automaten, Prozesse',
+          object: score.fosap
+        },
+        {
+          title: 'Berechenbarkeit und Komplexität',
+          object: score.buk
+        },
+        {
+          title: 'Mathematische Logik I',
+          object: score.malo
+        }
+      ],
+      vn: [
+        {
+          title: 'Hệ thống Quy chuẩn, Máy tự động và Quy trình',
+          object: score.fosap
+        },
+        {
+          title: 'Tính tính toán khả thi và Độ phức tạp',
+          object: score.buk
+        },
+        {
+          title: 'Toán Logic I',
+          object: score.malo
+        }
+      ],
+    }
+    const math = {
+      en: [
+        {
+          title: 'Discrete Structure',
+          object: score.ds
+        },
+        {
+          title: 'Analysis for Computer Science',
+          object: score.anal
+        },
+        {
+          title: 'Linear Algebra',
+          object: score.lial
+        },
+        {
+          title: 'Introduction to applied Stochastics',
+          object: score.sto
+        }
+      ],
+      de: [
+        {
+          title: 'Diskrete Structuren',
+          object: score.ds
+        },
+        {
+          title: 'Analysis für Informatik',
+          object: score.anal
+        },
+        {
+          title: 'Lineare Algebra',
+          object: score.lial
+        },
+        {
+          title: 'Einführung in die angewandte Stochastik',
+          object: score.sto
+        }
+      ],
+      vn: [
+        {
+          title: 'Cấu trúc Rời rạc',
+          object: score.ds
+        },
+        {
+          title: 'Toán Phân tích',
+          object: score.anal
+        },
+        {
+          title: 'Đại số Tuyến tính',
+          object: score.lial
+        },
+        {
+          title: 'Nhập môn Ngẫu nhiên',
+          object: score.sto
+        }
+      ],
+    }
+    const elec = {
+      en: [
+        {
+          title: 'Artificial Intelligence',
+          object: score.ai
+        },
+        {
+          title: 'Computer Vision',
+          object: score.comvi
+        },
+        {
+          title: 'Foundations of Functional Programming',
+          object: score.funcprog
+        }
+      ],
+      de: [
+        {
+          title: 'Künstliche Intelligenz',
+          object: score.ai
+        },
+        {
+          title: 'Computer Vision',
+          object: score.comvi
+        },
+        {
+          title: 'Foundations of Functional Programming',
+          object: score.funcprog
+        }
+      ],
+      vn: [
+        {
+          title: 'Trí tuệ Nhân tạo',
+          object: score.ai
+        },
+        {
+          title: 'Tầm nhìn Máy tính',
+          object: score.comvi
+        },
+        {
+          title: 'Cơ sở Lập trình Chức năng',
+          object: score.funcprog
+        }
+      ],
+    }
+    const gpaContent = {
+      en: {
+        'Applied Computer Science': pracCS.en,
+        'Computer Engineering': techCS.en,
+        'Theoretical Computer Science': theoCS.en,
+        'Mathematics': math.en,
+        'Electives': elec.en
+      },
+      de:{
+         'Praktische Informatik': pracCS.de,
+         'Technische Informatik': techCS.de,
+         'Theoretische Informatik': theoCS.de,
+         'Mathematik': math.de,
+         'Wahlpflichtbereich': elec.de
+        },
+      vn: {
+        'Khoa Học Máy Tính Ứng Dụng': pracCS.vn,
+         'Kĩ Thuật Máy Tính': techCS.vn,
+         'Lý Thuyết Khoa Học Máy Tính': theoCS.vn,
+         'Toán': math.vn,
+         'Môn Lựa Chọn': elec.vn
+      }
+    }
+    const currentStudying = {
+      en: 'Currently studying',
+      de: 'Aktuell lernen',
+      vn: 'Đang học'
+    }
+    const average = {
+      en: 'Average',
+      de: 'Durchschnitt',
+      vn: 'Trung bình'
+    }
+    const currentAverage = {
+      en: 'Current GPA',
+      de: 'Aktueller Durchschnitt',
+      vn: 'Điểm trung bình hiện tại'
+    }
+    const summer = {
+      en: 'Summer',
+      de: 'Sommer',
+      vn: 'Hè'
+    }
+    const winter = {
+      en: 'Winter',
+      de: 'Winter',
+      vn: 'Đông'
+    }
+    // round function
+    const round = (ave) => {
+      if ((ave * 100) % 10 >= 5)  {
+          ave = Math.floor((ave * 10) + 1) / 10
+        } else {
+          ave = Math.floor(ave * 10) / 10
+        }
+      return ave
+    }
 
+    const loadGPA = (lang) => {
+      currentPage = 'gpa'
+      let temp = ''
+      const home = document.getElementById('home')
+      home.style.backgroundImage = ''
+      home.style.marginLeft = '0'
+      temp += `<h1 style='text-align: center'>${gpa[lang]}</h1>
+      <h1 id='cs' class='first'>${currentAverage[lang]}: </h1>
+      <small style='font-style: italic; color: grey' class='first'>S: ${summer[lang]} W: ${winter[lang]}</small>`
+      home.innerHTML = temp
+      temp = `<table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th style='padding-left:3vh'>${field[lang]}</th>
+            <th>${subject[lang]}</th>
+            <th>${semester[lang]}</th>
+            <th>${grade[lang]}</th>
+          </tr>
+        </thead>
+        `
+      temp += '<tbody>'
+      let sum = 0
+      Object.keys(gpaContent[lang]).forEach(field => {
+        let first = true
+        let count = 0
+        let currentSum = 0
+        gpaContent[lang][field].forEach(sub => {
+          temp += `
+          <tr>
+            <td style='padding-left:3vh'><strong>${first ? field : ''}</strong></td>
+            <td>${sub.title}</td>
+            <td>${sub.object.sem}</td>
+            <td>${sub.object.grade !== '' ? String(sub.object.grade).padEnd(3, '.0') : currentStudying[lang]}</td>
+          </tr>
+          `
+          first = false
+          if (sub.object.grade !== '') {
+            count++
+            currentSum += sub.object.grade
+          }
+        })
+        const ave = round(currentSum / count)
+        
+        sum += ave
+        temp += `
+        <tr>
+          <td style='padding-left:3vh'><strong>${average[lang]}</strong></td>
+          <td></td>
+          <td></td>
+          <td><strong>${String(ave).padEnd(3, '.0')}</strong></td>
+        </tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        `
+      })
+      const ave = round(sum / 5)
+      document.getElementById('cs').innerHTML += String(ave).padEnd(3, '.0')
+      temp += '</tbody></table>'
+      home.innerHTML += temp
+    }
+    loadWelcome('en')
+    
     // click function for dropdown button
     function onClick(type, icon) {
         const ele = document.getElementById(type);
-        console.log(ele.classList);
         if (ele.classList.contains('visible')) {
             ele.classList.remove('visible');
             icon.style.transform = 'rotate(0deg)';
@@ -796,6 +1289,12 @@
             ele.classList.add('visible');
             icon.style.transform = 'rotate(180deg)';
         }
+    }
+    const navigator = {
+      home: loadWelcome,
+      about: loadAbout,
+      projects: loadProjects,
+      gpa: loadGPA
     }
 
     // type is the content to display, for example about-en
@@ -817,41 +1316,13 @@
           lang = e.id
         }
       })
-      switch (type) {
-        case 'home': {
-          loadWelcome(lang)
-          break
-        }
-        case 'about': {
-          loadAbout(lang)
-          break
-        }
-        case 'projects': {
-          loadProjects(lang)
-          break
-        }
-        default: alert('Invalid')
-      }
+      navigator[type](lang)
     }
 
     function handleLang(lang) {
     loadNav(lang)
     // load current page
-    switch(currentpage) {
-        case 'home': {
-          loadWelcome(lang)
-          break
-        }
-        case 'about': {
-          loadAbout(lang)
-          break
-        }
-        case 'projects': {
-          loadProjects(lang)
-          break
-        }
-        default: alert('Invalid')
-      }
+    navigator[currentPage](lang)
     }
    </script>
 </body>
