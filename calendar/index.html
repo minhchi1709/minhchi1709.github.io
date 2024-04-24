@@ -483,7 +483,7 @@
                 const target = document.getElementById(`${day}-${i + 1}`);
                 // if upcomming
                 if (frequency * i <= distanceWarning && distanceWarning < upcommingMax + frequency * i) {
-                    if (currentHighlighted < 0){
+                    if (currentHighlighted < 0 || currentHighlighted !== i){
                         target.style.backgroundColor = 'rgb(255, 193, 7)'
                         target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
                         target.style.borderRadius = '10px'
@@ -496,7 +496,7 @@
                     break
                 }
                 else if (frequency * i <= distance && distance < max + frequency * i) { // current occur
-                    if (currentHighlighted < 0) {
+                    if (currentHighlighted < 0 || currentHighlighted !== i) {
                         target.style.backgroundColor = 'white'
                         target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
                         target.style.borderRadius = '10px'
