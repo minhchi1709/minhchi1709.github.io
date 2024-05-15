@@ -265,16 +265,6 @@
                 ]
             },
             {
-                name: 'Introduction to Scientific Work',
-                schedules: [
-                    {
-                        type: 'One-time Introduction',
-                        time: 'wed-5',
-                        location: 'AH V (2356|050)'
-                    }
-                ]
-            },
-            {
                 name: 'A Race between Model-based and Handwritten Development of Web-Applications',
                 href: 'https://moodle.rwth-aachen.de/course/view.php?id=41895',
                 schedules: [
@@ -282,16 +272,6 @@
                         type: 'Weekly meeting 14:00 - 14:45',
                         time: 'tue-3',
                         zoom: 'https://rwth.zoom-x.de/j/68233436864?pwd=SmtGOFNGM0lDdzdZWENGL0ovTFRUQT09'
-                    }
-                ]
-            },
-            {
-                name: 'Mandatory Library Course Wed, 15.05.2024 15:00',
-                schedules: [
-                    {
-                        type: 'One-time Introduction',
-                        time: 'wed-4',
-                        location: 'Library'
                     }
                 ]
             },
@@ -350,53 +330,7 @@
                 docker run --pull always -p 8888:8888 registry.git.rwth-aachen.de/i5/teaching/dbis-jupyter/dbis-vl-2023-jupyter-profile-definition/main
                 `
             },
-            {
-                title: 'Databases and Information Systems Helper',
-                detail: `
-                <strong>EM:</strong><br>
-                from erdiagram import ER<br>
-                g = ER()<br>
-                # ...<br>
-                g.display()<br>
-                Neue Entität zum Graphen hinzufügen<br>
-
-                g.add_entity(label, is_multiple = False, is_weak = False)<br><br>
-                Neues Attribut zu einer Entität im Graphen hinzufügen<br>
-
-                g.add_attribute(<br>
-                &emsp;     parent_label, <br>
-                &emsp;     attribute_label,<br>
-                &emsp;     is_pk = False, <br>
-                &emsp;     is_multiple = False,<br>
-                &emsp;     is_weak = False, <br>
-                &emsp;     composed_of = [erwartet eine Liste von Strings]<br>
-                )<br><br>
-
-                Neue Beziehung (=Relation) zwischen zwei Entitäten hinzufügen<br>
-                g.add_relation(<br>
-                &emsp; from_entities, <br>
-                &emsp; relation_label, <br>
-                &emsp; to_entities<br>
-                )<br><br>
-
-                Generalisierung / Spezialisierung beschreiben<br>
-                g.add_is_a(<br>
-                &emsp; super_class_label, <br>
-                &emsp; sub_class_labels, <br>
-                &emsp; is_total, <br>
-                &emsp; is_disjunct, <br>
-                &emsp; custom_text = None<br>
-                )<br>
-                <hr>
-                <strong>RM:</strong><br>
-                Relation(name, primaryKeyList, allOtherAttributesList)<br>
-                ProjectedRelation(relationName, projectedAttributeList) -- use for foreign keys and is-a-relationship<br>
-                Subset(projectedRelationLeft, projectedRelationRight)<br>
-                Intersection(projectedRelationLeft, projectedRelationRight, equals=None) -- equals expresses whether the intersection empty is <br>
-                rm.addRelation(relation)<br>
-                rm.addDependency(subset or intersection)
-                `
-            },
+            
         ]
         notes.forEach(note => {
             document.getElementById('notes').innerHTML += `
@@ -483,31 +417,21 @@
                 const target = document.getElementById(`${day}-${i + 1}`);
                 // if upcomming
                 if (frequency * i <= distanceWarning && distanceWarning < upcommingMax + frequency * i) {
-                    if (currentHighlighted < 0 || currentHighlighted !== i){
-                        target.style.backgroundColor = 'rgb(255, 193, 7)'
-                        target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
-                        target.style.borderRadius = '10px'
-                        currentHighlighted = i
-                    } else {
-                        const previous = document.getElementById(`${day}-${i}`)
-                        previous.style.boxShadow = 'none'
-                        previous.style.backgroundColor = 'inherit'
+                    if (!target.classList.includes('warning')) {
+                        target.classList.add('warning')
+                        if (i > 0) {
+                            document.getElementById(`${day}-${i}`).classList.remove('active')
+                        }
                     }
                     break
                 }
                 else if (frequency * i <= distance && distance < max + frequency * i) { // current occur
-                    if (currentHighlighted < 0 || currentHighlighted !== i) {
-                        target.style.backgroundColor = 'white'
-                        target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
-                        target.style.borderRadius = '10px'
-                        currentHighlighted = i
+                    if (!target.classList.includes('active')) {
+                        target.classList.remove('warning')
+                        target.classList.add('active')
                     } 
                     break
-                } // so now there is not the block
-                else if (i === 4) {
-                    target.style.backgroundColor = 'white'
-                    target.style.boxShadow = 'none'
-                }
+                } 
             }   
         }
         figureNow();
