@@ -1,7 +1,4 @@
 # minhchi1709.github.io
-Count down till I fly to Vietnam: <https://minhchi1709.github.io/countdown/main.html>
+About me and my girlfriend: <https://minhchi1709.github.io/beentogether/index.html>
 
-
-How long we have been together: <https://minhchi1709.github.io/beentogether/main.html>
-
-Personal website
+Personal website: <https://minhchi1709.github.io/mywebsite/index.html>
