@@ -91,7 +91,7 @@
         }
 
         .active {
-            box-shadow:  4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            box-shadow:  4px 8px 0 rgba(234, 46, 46, 0.745), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             border-radius: 10px;
         }
         .warning {
@@ -421,18 +421,22 @@
                 const target = document.getElementById(`${day}-${i + 1}`);
                 // if upcomming
                 if (frequency * i <= distanceWarning && distanceWarning < upcommingMax + frequency * i) {
-                    if (!target.classList.includes('warning')) {
+                    if (!target.classList.contains('warning')) {
                         target.classList.add('warning')
+                        target.style.boxShadow = '0 4px 8px 0 rgba(234, 46, 46, 0.745), 0 4px 20px 0 rgba(234, 46, 46, 0.745)'
                         if (i > 0) {
                             document.getElementById(`${day}-${i}`).classList.remove('active')
+                            document.getElementById(`${day}-${i}`).style.boxShadow = ''
                         }
                     }
                     break
                 }
                 else if (frequency * i <= distance && distance < max + frequency * i) { // current occur
-                    if (!target.classList.includes('active')) {
+                    if (!target.classList.contains('active')) {
                         target.classList.remove('warning')
+                        target.style.boxShadow = ''
                         target.classList.add('active')
+                        target.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
                     } 
                     break
                 } 
