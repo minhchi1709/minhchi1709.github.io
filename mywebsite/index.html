@@ -24,19 +24,18 @@
     }
 
     .col {
-    padding: 0
+    padding: 0rem
     }
-
-    .col-2 {
-    padding-right: 0
-    } 
+    .col-3 {
+      padding-right: 0rem
+    }
 
     /* navigation */
 
     .nav-container {
         height: 100%;
         box-shadow: 3px 0 10px lightgrey;
-        
+
       }
       
     .ava {
@@ -206,7 +205,7 @@
 </head>
 <body class="container-fluid">
    <div class="row">
-    <div id="navigation" class="col-2">
+    <div id="navigation" class="col-3">
         <ul class="nav flex-column nav-container">
             <li class="nav-item">
               <a class="nav-link ava-container">
@@ -829,7 +828,7 @@
       },
       dbis: {
         sem: '24S',
-        grade: ''
+        grade: 2.3
       },
       mlds: {
         sem: '23W',
@@ -885,11 +884,15 @@
       },
       ai: {
         sem: '23W',
-        grade: '2.0'
+        grade: 2.0
       },
       funcprog: {
         sem: '24S',
-        grade: ''
+        grade: 1.7
+      },
+      embed: {
+        sem: '24S',
+        grade: 2.3
       }
     }
     const pracCS = {
@@ -1129,6 +1132,10 @@
         {
           title: 'Foundations of Functional Programming',
           object: score.funcprog
+        },
+        {
+          title: 'Introduction to Embedded Systems',
+          object: score.embed
         }
       ],
       de: [
@@ -1143,7 +1150,12 @@
         {
           title: 'Foundations of Functional Programming',
           object: score.funcprog
+        },
+        {
+          title: 'Einführung in emgebette Systeme',
+          object: score.embed
         }
+
       ],
       vn: [
         {
@@ -1157,6 +1169,10 @@
         {
           title: 'Cơ sở Lập trình Chức năng',
           object: score.funcprog
+        },
+        {
+          title: 'Introduction to Embedded Systems',
+          object: score.embed
         }
       ],
     }
